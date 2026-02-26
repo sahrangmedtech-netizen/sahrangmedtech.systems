@@ -4,565 +4,587 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahrang UroFLOWs - AI-Powered Uroflowmetry Solutions</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Sahrang Medtech - AI-Powered Uroflowmetry Solutions</title>
+    <link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
 
         :root {
-            --primary-blue: #0066cc;
-            --secondary-blue: #0052a3;
-            --accent-cyan: #00bcd4;
-            --light-blue: #e3f2fd;
-            --dark-blue: #003d82;
-            --medical-green: #4caf50;
-            --warning-orange: #ff9800;
-            --error-red: #f44336;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
+            --primary-blue: #1160B7;
+            --secondary-blue: #0d4f9e;
+            --pressed-blue: #002050;
+            --light-blue: #B1D6F0;
+            --dark-blue: #002050;
+            --accent-teal: #1160B7;
+            --medical-green: #1160B7;
+            --warning-orange: #CA5010;
+            --error-red: #A4262C;
+            --text-primary: #002050;
+            --text-secondary: #3a5070;
             --text-light: #ffffff;
             --surface-white: #ffffff;
-            --surface-light: #f8f9fa;
-            --surface-dark: #1e1e1e;
-            --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
-            --gradient-secondary: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
-            --shadow-light: 0 2px 10px rgba(0, 102, 204, 0.1);
-            --shadow-medium: 0 8px 30px rgba(0, 102, 204, 0.15);
-            --shadow-heavy: 0 20px 60px rgba(0, 102, 204, 0.2);
-            --border-radius-sm: 8px;
-            --border-radius-md: 16px;
-            --border-radius-lg: 24px;
-            --border-radius-xl: 32px;
-            --navbar-height: 80px;
+            --surface-light: #DFE2E8;
+            --surface-medium: #DFE2E8;
+            --surface-dark: #002050;
+            --border-color: #DFE2E8;
+            --border-dark: #b0b8c8;
+            --shadow-light: 0 0 2px rgba(0,32,80,.10), 0 1px 2px rgba(0,32,80,.12);
+            --shadow-medium: 0 0 2px rgba(0,32,80,.10), 0 4px 8px rgba(0,32,80,.12);
+            --shadow-heavy: 0 0 8px rgba(0,32,80,.10), 0 14px 28px rgba(0,32,80,.14);
+            --border-radius-sm: 2px;
+            --border-radius-md: 2px;
+            --border-radius-lg: 2px;
+            --border-radius-xl: 2px;
+            --navbar-height: 48px;
+            --accent-cyan: #1160B7;
+            --gradient-primary: linear-gradient(135deg, #1160B7, #002050);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
-            overflow-x: hidden; /* Prevent horizontal overflow */
+            overflow-x: hidden;
             background: var(--surface-white);
             padding-top: var(--navbar-height);
             -webkit-font-smoothing: antialiased;
+            font-size: 16px;
         }
 
-        /* Navigation */
+        /* ── NAVBAR — Microsoft style ── */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 102, 204, 0.1);
-            z-index: 1001; /* Ensure it stays above other content */
-            transition: all 0.3s ease;
-            will-change: transform, background; /* Optimize for scroll */
+            background: #ffffff;
+            border-bottom: 1px solid #DFE2E8;
+            z-index: 1001;
+            height: var(--navbar-height);
+            transition: transform 0.3s ease, box-shadow 0.2s;
+        }
+
+        .navbar.nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        .navbar.nav-visible {
+            transform: translateY(0);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0 1.5rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            height: 100%;
+            gap: 0;
             position: relative;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.01em;
+            margin-right: 2rem;
+            white-space: nowrap;
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 0;
+            flex: 1;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.3s ease;
+            color: var(--dark-blue);
+            font-size: 0.9375rem;
+            font-weight: 400;
+            padding: 0 0.875rem;
+            height: var(--navbar-height);
+            display: flex;
+            align-items: center;
             position: relative;
+            transition: color 0.1s, background 0.1s;
+            white-space: nowrap;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: width 0.3s ease;
+        .nav-links a::after { display: none; }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+            background: none;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-left: auto;
+        }
+
+        .nav-icon-btn {
+            background: none;
+            border: none;
+            color: var(--dark-blue);
+            font-size: 0.9375rem;
+            font-weight: 400;
+            padding: 0 0.75rem;
+            height: var(--navbar-height);
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.1s;
+            font-family: inherit;
+        }
+
+        .nav-icon-btn:hover { color: var(--primary-blue); }
+
+        .nav-icon-btn i { font-size: 1rem; }
+
+        .nav-divider {
+            width: 1px;
+            height: 16px;
+            background: #DFE2E8;
+            margin: 0 0.25rem;
         }
 
         .nav-cta {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--border-radius-sm);
+            background: var(--primary-blue);
+            color: white !important;
+            padding: 0.375rem 1rem;
+            border-radius: 2px;
             text-decoration: none;
+            font-size: 0.875rem;
             font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-light);
+            transition: background 0.1s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            cursor: pointer;
+            font-family: inherit;
+            height: 32px;
         }
 
         .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
+            background: var(--pressed-blue) !important;
+            color: white !important;
         }
 
         .hamburger {
             display: none;
-            font-size: 1.8rem;
+            font-size: 1.125rem;
             background: none;
             border: none;
-            color: var(--text-primary);
+            color: var(--dark-blue);
             cursor: pointer;
             z-index: 1002;
+            padding: 0.5rem;
+            margin-left: auto;
         }
 
         .nav-links-mobile {
             display: none;
             position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
+            top: 100%; left: 0; right: 0;
+            background: #ffffff;
             flex-direction: column;
-            padding: 1rem 2rem;
-            box-shadow: var(--shadow-medium);
-            border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 16px rgba(0,32,80,0.12);
+            border-top: 1px solid var(--border-color);
             list-style: none;
+            z-index: 1003;
         }
 
-        .nav-links-mobile.active {
-            display: flex;
-        }
-
-        .nav-links-mobile li {
-            margin: 0.5rem 0;
-            text-align: center;
-        }
+        .nav-links-mobile.active { display: flex; }
+        .nav-links-mobile li { margin: 0; }
 
         .nav-links-mobile a {
             display: block;
-            padding: 0.5rem;
-            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9375rem;
             text-decoration: none;
+            color: var(--dark-blue);
+            transition: background 0.1s, color 0.1s;
+        }
+
+        .nav-links-mobile a:hover { background: #EBF4FB; color: var(--primary-blue); }
+
+        .nav-links-mobile .nav-cta {
+            display: inline-flex;
+            margin: 0.75rem 1.5rem;
+            height: 36px;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: calc(100vh - var(--navbar-height));
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+            background: var(--surface-white);
             position: relative;
-            overflow: hidden;
-            z-index: 1; /* Below navbar */
+            overflow-x: clip;
+            z-index: 1;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23e3f2fd" stroke-width="1" opacity="0.5"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-            z-index: -1;
+            top: 0; right: 0;
+            width: 52%; height: 100%;
+            background: #EBF4FB;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 0;
         }
 
         .hero-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 6rem 3rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content {
-            z-index: 2;
-            order: 1;
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
+            gap: 5rem;
             align-items: center;
             position: relative;
-            order: 2;
+            z-index: 1;
         }
+
+        .hero-content { z-index: 2; order: 1; }
+        .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; order: 2; }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(0, 102, 204, 0.1);
-            color: var(--primary-blue);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
+            background: var(--dark-blue);
+            color: #fff;
+            padding: 0.45rem 1rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            animation: fadeInUp 0.6s ease-out;
+            border-radius: 3px;
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-primary), var(--primary-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            color: var(--dark-blue);
+            letter-spacing: -0.025em;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
-            max-width: 500px;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
+            max-width: 520px;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
         }
 
         .hero-cta-group {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
+            background: var(--primary-blue);
             color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: var(--border-radius-md);
-            font-size: 1rem;
+            padding: 0.6875rem 1.5rem;
+            border: 1px solid var(--primary-blue);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9375rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.1s, border-color 0.1s;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: var(--shadow-medium);
-            min-width: 48px;
-            min-height: 48px; /* Touch-friendly size */
+            min-height: 44px;
+            font-family: inherit;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-heavy);
-        }
+        .btn-primary:hover { background: var(--pressed-blue); border-color: var(--pressed-blue); }
+        .btn-primary:active { background: var(--pressed-blue); border-color: var(--pressed-blue); }
 
         .btn-secondary {
             background: transparent;
             color: var(--primary-blue);
-            padding: 1rem 2rem;
-            border: 2px solid var(--primary-blue);
-            border-radius: var(--border-radius-md);
-            font-size: 1rem;
+            padding: 0.6875rem 0.25rem;
+            border: none;
+            border-radius: 0;
+            font-size: 0.9375rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: color 0.1s;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            min-width: 48px;
-            min-height: 48px; /* Touch-friendly size */
+            min-height: 44px;
+            font-family: inherit;
         }
 
-        .btn-secondary:hover {
-            background: var(--primary-blue);
-            color: white;
-            transform: translateY(-2px);
+        .btn-secondary:hover { background: transparent; color: var(--pressed-blue); }
+        .btn-secondary:hover .btn-secondary-text { text-decoration: underline; }
+
+        .btn-secondary-arrow {
+            display: inline-flex;
+            align-items: center;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .btn-secondary:hover .btn-secondary-arrow {
+            transform: translateX(5px);
         }
 
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.8s both;
+            gap: 0;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+            border: 1px solid var(--border-color);
         }
 
         .stat-item {
             text-align: left;
+            padding: 1.25rem 1.5rem;
+            border-right: 1px solid var(--border-color);
+            background: #EBF4FB;
         }
 
+        .stat-item:last-child { border-right: none; }
+
         .stat-number {
-            font-size: 2rem;
-            font-weight: 900;
+            font-size: 1.75rem;
+            font-weight: 700;
             color: var(--primary-blue);
             display: block;
+            letter-spacing: -0.02em;
         }
 
         .stat-label {
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             color: var(--text-secondary);
-            font-weight: 500;
+            font-weight: 400;
+            margin-top: 0.125rem;
         }
 
+        /* Device showcase */
         .device-showcase {
-            width: 90vw;
-            max-width: 450px;
-            height: 550px;
-            background: var(--gradient-primary);
-            border-radius: var(--border-radius-xl);
+            width: 100%;
             position: relative;
-            box-shadow: var(--shadow-heavy), 0 0 20px rgba(0, 102, 204, 0.3);
-            animation: deviceFloat 5s ease-in-out infinite;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .device-screen {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            right: 30px;
-            bottom: 100px;
-            background: var(--surface-white);
-            border-radius: var(--border-radius-md);
+            position: relative;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
-            box-shadow: inset 0 0 10px rgba(0, 102, 204, 0.1);
-            transition: transform 0.3s ease;
+        }
+
+        /* Radial blue glow behind the image */
+        .device-screen::before {
+            content: '';
+            position: absolute;
+            width: 560px;
+            height: 560px;
+            background: radial-gradient(circle, rgba(17,96,183,0.22) 0%, rgba(177,214,240,0.12) 45%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: glowPulse 4.5s ease-in-out infinite;
         }
 
         .device-image {
             width: 85%;
+            max-width: 480px;
             height: auto;
-            border-radius: var(--border-radius-sm);
             object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(0, 102, 204, 0.3));
-            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 32px 64px rgba(0,32,80,0.18)) drop-shadow(0 8px 20px rgba(17,96,183,0.18));
+            animation: deviceFloat 5s ease-in-out infinite;
         }
 
-        .device-image:hover {
-            transform: scale(1.05);
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+            50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
         }
 
-        .screen-icon {
-            font-size: 2.5rem;
+        .video-info-item i {
+            font-size: 1.375rem;
             color: var(--primary-blue);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .screen-text {
-            color: var(--text-primary);
-            font-weight: 600;
-            text-align: center;
-            font-size: 0.9rem;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         @keyframes deviceFloat {
-            0%, 100% {
-                transform: translateY(0) rotateY(0deg) rotateX(0deg);
-            }
-            50% {
-                transform: translateY(-15px) rotateY(3deg) rotateX(3deg);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
         }
 
         @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
         }
 
         @keyframes pulseBackground {
-            0%, 100% {
-                opacity: 0.4;
-            }
-            50% {
-                opacity: 0.8;
-            }
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
         }
 
         /* Video Demo Section */
         .video-demo {
-            padding: 2rem 0 4rem 0;
-            background: linear-gradient(135deg, var(--surface-light), var(--light-blue));
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding: 5rem 0;
+            background: var(--surface-medium);
+            min-height: auto;
+            display: block;
         }
-        
-        .video-demo .section-subtitle {
-            margin: 0 auto;
-        }
-        
-        .video-demo .section-subtitle .mobile-hide {
-            display: inline;
-        }
-        
-        .video-demo .section-subtitle .mobile-show {
-            display: none;
-        }
+
+        .video-demo .section-subtitle { margin: 0 auto; }
+        .video-demo .section-subtitle .mobile-hide { display: inline; }
+        .video-demo .section-subtitle .mobile-show { display: none; }
 
         .video-card {
             background: var(--surface-white);
-            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--border-color);
             overflow: hidden;
-            box-shadow: var(--shadow-heavy);
-            border: 1px solid rgba(0, 102, 204, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-medium);
+            transition: box-shadow 0.2s;
         }
 
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 70px rgba(0, 102, 204, 0.25);
-        }
+        .video-card:hover { box-shadow: var(--shadow-heavy); }
 
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            background: var(--surface-dark);
+            padding-top: 56.25%;
+            background: #000;
             overflow: hidden;
         }
 
         .video-wrapper iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: none;
         }
 
         .video-info {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            padding: 3rem;
+            gap: 0;
             background: var(--surface-white);
+            border-top: 1px solid var(--border-color);
         }
 
         .video-info-item {
             display: flex;
             align-items: center;
             gap: 1rem;
+            padding: 2rem;
+            border-right: 1px solid var(--border-color);
         }
 
+        .video-info-item:last-child { border-right: none; }
+
         .video-info-item i {
-            font-size: 2rem;
+            font-size: 1.375rem;
             color: var(--primary-blue);
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
-            background: rgba(0, 102, 204, 0.1);
-            border-radius: var(--border-radius-md);
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background: var(--light-blue);
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
-        .video-info-item h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .video-info-item p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
+        .video-info-item h4 { font-size: 0.9375rem; font-weight: 600; color: var(--dark-blue); margin-bottom: 0.25rem; }
+        .video-info-item p { font-size: 0.8125rem; color: var(--text-secondary); margin: 0; }
 
         /* Features Section */
-        .features {
-            padding: 8rem 0;
-            background: var(--surface-white);
-        }
+        .features { padding: 6rem 0; background: var(--surface-white); }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
 
         .section-badge {
             display: inline-block;
-            background: rgba(76, 175, 80, 0.1);
-            color: var(--medical-green);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
+            background: var(--dark-blue);
+            color: #fff;
+            padding: 0.45rem 1rem;
+            font-size: 0.75rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
             margin-bottom: 1rem;
+            border-radius: 3px;
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--text-primary), var(--primary-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.875rem;
+            color: var(--dark-blue);
+            letter-spacing: -0.02em;
         }
 
         .section-subtitle {
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 580px;
             margin: 0 auto;
+            line-height: 1.7;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 1px;
+            background: var(--border-color);
+            border: 1px solid var(--border-color);
         }
 
         .feature-card {
             background: var(--surface-white);
-            border: 1px solid rgba(0, 102, 204, 0.1);
-            border-radius: var(--border-radius-lg);
             padding: 2.5rem;
-            transition: all 0.3s ease;
+            transition: background 0.15s;
             position: relative;
             overflow: hidden;
         }
@@ -570,114 +592,82 @@
         .feature-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--primary-blue);
             transform: scaleX(0);
-            transition: transform 0.3s ease;
-            will-change: transform;
+            transition: transform 0.2s;
         }
 
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-heavy);
-            border-color: rgba(0, 102, 204, 0.2);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
+        .feature-card:hover { background: #EBF4FB; }
+        .feature-card:hover::before { transform: scaleX(1); }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: var(--border-radius-md);
+            width: 48px;
+            height: 48px;
+            background: var(--light-blue);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
-            color: white;
-            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-size: 1.375rem;
         }
 
-        .feature-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .feature-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
+        .feature-title { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--dark-blue); }
+        .feature-description { color: var(--text-secondary); line-height: 1.6; font-size: 0.9375rem; }
 
         /* Technology Section */
-        .technology {
-            padding: 8rem 0;
-            background: linear-gradient(135deg, var(--surface-light), var(--light-blue));
-        }
+        .technology { padding: 6rem 0; background: var(--surface-medium); }
 
         .tech-showcase {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
         }
 
-        .tech-content {
-            padding: 2rem 0;
-        }
+        .tech-content { padding: 1rem 0; }
 
         .tech-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--dark-blue);
+            letter-spacing: -0.02em;
         }
 
-        .tech-description {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
+        .tech-description { font-size: 1.0625rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7; }
 
         .tech-metrics {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 1px;
+            margin-bottom: 2.5rem;
+            background: var(--border-color);
+            border: 1px solid var(--border-color);
         }
 
         .metric-item {
             background: var(--surface-white);
-            padding: 1.5rem;
-            border-radius: var(--border-radius-md);
-            text-align: center;
-            box-shadow: var(--shadow-light);
+            padding: 1.375rem 1.5rem;
+            text-align: left;
         }
 
         .metric-value {
-            font-size: 2rem;
-            font-weight: 900;
+            font-size: 1.75rem;
+            font-weight: 700;
             color: var(--primary-blue);
             display: block;
+            letter-spacing: -0.02em;
         }
 
-        .metric-label {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
+        .metric-label { font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem; }
 
         .tech-visual {
             position: relative;
-            height: 500px;
-            max-width: 600px;
+            height: 460px;
+            max-width: 560px;
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -685,127 +675,83 @@
         }
 
         .tech-diagram {
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             position: relative;
-            animation: rotate 20s linear infinite;
+            animation: rotate 25s linear infinite;
         }
 
         .diagram-element {
             position: absolute;
-            width: 90px;
-            height: 90px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            background: var(--primary-blue);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.5rem;
             box-shadow: var(--shadow-medium);
-            transition: transform 0.3s ease;
         }
 
-        .diagram-element:nth-child(1) {
-            top: -15%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .diagram-element:nth-child(2) {
-            top: 50%;
-            right: -15%;
-            transform: translateY(-50%);
-        }
-
-        .diagram-element:nth-child(3) {
-            bottom: -15%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .diagram-element:nth-child(4) {
-            top: 50%;
-            left: -15%;
-            transform: translateY(-50%);
-        }
-
-        .diagram-element:nth-child(5) {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+        .diagram-element:nth-child(1) { top: -15%; left: 50%; transform: translateX(-50%); }
+        .diagram-element:nth-child(2) { top: 50%; right: -15%; transform: translateY(-50%); }
+        .diagram-element:nth-child(3) { bottom: -15%; left: 50%; transform: translateX(-50%); }
+        .diagram-element:nth-child(4) { top: 50%; left: -15%; transform: translateY(-50%); }
+        .diagram-element:nth-child(5) { top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--dark-blue); }
 
         @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Pricing Section */
-        .pricing {
-            padding: 8rem 0;
-            background: var(--surface-white);
-        }
+        .pricing { padding: 6rem 0; background: var(--surface-white); }
 
         .pricing-card {
-            max-width: 600px;
+            max-width: 580px;
             margin: 0 auto;
             background: var(--surface-white);
-            border: 2px solid rgba(0, 102, 204, 0.1);
-            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--border-dark);
             padding: 3rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-heavy);
+            box-shadow: var(--shadow-medium);
         }
 
         .pricing-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: var(--gradient-primary);
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--primary-blue);
         }
 
-        .pricing-header {
-            margin-bottom: 2rem;
-        }
-
-        .pricing-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
+        .pricing-header { margin-bottom: 2rem; }
+        .pricing-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--dark-blue); }
 
         .pricing-price {
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-size: 3rem;
+            font-weight: 700;
             color: var(--primary-blue);
             margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
         }
 
-        .pricing-currency {
-            font-size: 1.5rem;
-            vertical-align: top;
-        }
+        .pricing-currency { font-size: 1.375rem; vertical-align: top; font-weight: 600; }
 
         .pricing-savings {
-            background: rgba(76, 175, 80, 0.1);
-            color: var(--medical-green);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
+            background: var(--dark-blue);
+            color: #fff;
+            padding: 0.45rem 1rem;
+            font-size: 0.8125rem;
             font-weight: 600;
             display: inline-block;
             margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            border-radius: 3px;
         }
 
         .pricing-features {
@@ -820,19 +766,16 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem;
-            background: var(--surface-light);
-            border-radius: var(--border-radius-sm);
+            background: #EBF4FB;
+            font-size: 0.875rem;
         }
 
-        .pricing-feature i {
-            color: var(--medical-green);
-        }
+        .pricing-feature i { color: var(--primary-blue); flex-shrink: 0; }
+
+        .pricing-feature img { width: 1rem; height: 1rem; }
 
         /* Applications Section */
-        .applications {
-            padding: 8rem 0;
-            background: linear-gradient(135deg, var(--surface-light), var(--light-blue));
-        }
+        .applications { padding: 6rem 0; background: var(--surface-medium); }
 
         .apps-grid {
             display: grid;
@@ -842,70 +785,42 @@
 
         .app-card {
             background: var(--surface-white);
-            border-radius: var(--border-radius-lg);
             padding: 2.5rem;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            border: 1px solid rgba(0, 102, 204, 0.1);
+            transition: background 0.15s;
             position: relative;
-            overflow: hidden;
         }
 
         .app-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--primary-blue);
             transform: scaleX(0);
-            transition: transform 0.3s ease;
-            will-change: transform;
+            transition: transform 0.2s;
         }
 
-        .app-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-heavy);
-            border-color: rgba(0, 102, 204, 0.2);
-        }
-
-        .app-card:hover::before {
-            transform: scaleX(1);
-        }
+        .app-card:hover { background: #EBF4FB; }
+        .app-card:hover::before { transform: scaleX(1); }
 
         .app-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            background: var(--light-blue);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 2rem;
+            color: var(--primary-blue);
+            font-size: 1.75rem;
         }
 
-        .app-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            text-align: center;
-        }
-
-        .app-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            text-align: center;
-        }
+        .app-title { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--dark-blue); }
+        .app-description { color: var(--text-secondary); line-height: 1.6; font-size: 0.9375rem; }
 
         /* Contact Section */
-        .contact {
-            padding: 8rem 0;
-            background: var(--surface-white);
-        }
+        .contact { padding: 6rem 0; background: var(--surface-white); }
 
         .contact-container {
             display: grid;
@@ -914,23 +829,17 @@
             align-items: start;
         }
 
-        .contact-info {
-            padding: 2rem 0;
-        }
+        .contact-info { padding: 1rem 0; }
 
         .contact-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--dark-blue);
+            letter-spacing: -0.02em;
         }
 
-        .contact-description {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
+        .contact-description { font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7; }
 
         .contact-details {
             display: flex;
@@ -949,52 +858,37 @@
         }
 
         .contact-item-icon {
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
-            background: var(--gradient-primary);
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background: #1160B7;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.25rem;
+            color: #ffffff;
+            font-size: 1.125rem;
             flex-shrink: 0;
         }
 
-        .contact-item-content {
-            flex: 1;
-        }
-
-        .contact-item-content h4 {
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            color: var(--text-primary);
-        }
-
-        .contact-item-content p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            word-break: break-word;
-        }
+        .contact-item-content { flex: 1; }
+        .contact-item-content h4 { font-weight: 600; margin-bottom: 0.25rem; color: var(--dark-blue); }
+        .contact-item-content p { color: var(--text-secondary); font-size: 0.9rem; word-break: break-word; }
 
         .contact-form {
             background: var(--surface-white);
-            border: 1px solid rgba(0, 102, 204, 0.1);
-            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--border-dark);
             padding: 3rem;
             box-shadow: var(--shadow-medium);
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+        .form-group { margin-bottom: 1.5rem; }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--dark-blue);
         }
 
         .form-group input,
@@ -1018,7 +912,7 @@
 
         .form-submit {
             width: 100%;
-            background: var(--gradient-primary);
+            background: var(--primary-blue);
             color: white;
             padding: 1.25rem;
             border: none;
@@ -1031,286 +925,487 @@
             min-height: 48px; /* Touch-friendly size */
         }
 
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-heavy);
+        .form-submit:hover { background: var(--pressed-blue); }
+
+        /* ── MICROSOFT-STYLE FOOTER ── */
+        .site-footer {
+            background: #ffffff;
+            border-top: 1px solid #DFE2E8;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer-main {
+            background: #f2f2f2;
+            padding: 2.5rem 0 1.5rem;
         }
 
-        .animate-on-scroll {
+        .footer-main .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #002050;
+            margin-bottom: 0.875rem;
+            letter-spacing: 0;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            font-size: 0.8125rem;
+            color: #444;
+            text-decoration: none;
+            transition: color 0.1s;
+            line-height: 1.5;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        /* Bottom bar — exact Microsoft style */
+        .footer-bottom {
+            background: #f2f2f2;
+            border-top: 1px solid #DFE2E8;
+            padding: 0.875rem 0;
+        }
+
+        .footer-bottom .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .footer-bottom-left {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8125rem;
+            color: #444;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 0;
+            transition: color 0.1s;
+        }
+
+        .footer-lang-btn:hover { color: var(--primary-blue); }
+
+        .footer-lang-btn i { font-size: 1rem; color: #555; }
+
+        .footer-privacy-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8125rem;
+            color: #444;
+            cursor: pointer;
+        }
+
+        /* Microsoft-style toggle switch */
+        .ms-toggle {
+            width: 28px;
+            height: 16px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            padding: 1px;
+            position: relative;
+            background: #fff;
+            flex-shrink: 0;
+        }
+
+        .ms-toggle-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            position: absolute;
+            left: 2px;
+            transition: left 0.2s;
+        }
+
+        .footer-bottom-link {
+            font-size: 0.8125rem;
+            color: #444;
+            text-decoration: none;
+            transition: color 0.1s;
+        }
+
+        .footer-bottom-link:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        .footer-bottom-right {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-copyright {
+            font-size: 0.8125rem;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* ── MICROSOFT-STYLE MEDIA CAROUSEL CONTROLS ── */
+        .ms-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        .ms-ctrl-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #002050;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem;
+            transition: color 0.1s;
+        }
+
+        .ms-ctrl-btn:hover { color: var(--primary-blue); }
+
+        /* Outlined pause icon — Microsoft style */
+        .ms-icon-pause {
+            width: 22px;
+            height: 22px;
+            border: 1.5px solid currentColor;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .ms-icon-pause span {
+            width: 2.5px;
+            height: 9px;
+            background: currentColor;
+            border-radius: 1px;
+            display: block;
+        }
+
+        /* Outlined chevron icons */
+        .ms-icon-chevron {
+            font-size: 0.875rem;
+            color: currentColor;
+        }
+
+        /* Dot indicators */
+        .ms-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #b0b8c8;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.15s;
+        }
+
+        .ms-dot.active {
+            background: var(--dark-blue);
+        }
+
+        .ms-dot:hover { background: var(--primary-blue); }
+
+        /* ── NAVBAR slide on scroll — rules already defined above ── */
+
+        /* ── BACK TO TOP — Microsoft style ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #ffffff;
+            color: var(--dark-blue);
+            border: 1px solid #DFE2E8;
+            padding: 0.5rem 1rem;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            z-index: 999;
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-            will-change: opacity, transform; /* Optimize animation */
+            pointer-events: none;
+            transform: translateY(8px);
+            transition: opacity 0.2s ease, transform 0.2s ease, background 0.1s, color 0.1s;
+            box-shadow: 0 2px 8px rgba(0,32,80,0.10);
+            text-decoration: none;
         }
 
-        .animate-on-scroll.animated {
+        .back-to-top.visible {
             opacity: 1;
+            pointer-events: auto;
             transform: translateY(0);
         }
 
+        .back-to-top:hover {
+            background: #EBF4FB;
+            color: var(--primary-blue);
+            border-color: var(--light-blue);
+        }
+
+        /* Microsoft-style upward arrow */
+        .back-to-top .btt-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            position: relative;
+        }
+
+        .back-to-top .btt-arrow::before {
+            content: '';
+            display: block;
+            width: 7px;
+            height: 7px;
+            border-top: 1.5px solid currentColor;
+            border-left: 1.5px solid currentColor;
+            transform: rotate(45deg) translateY(2px);
+        }
+
         /* Responsive Design */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .nav-right { display: none; }
+            .hamburger { display: flex; }
+        }
+
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .nav-cta {
-                display: none;
-            }
-
-            .nav-links-mobile .nav-cta {
-                display: block;
-                margin: 1rem auto;
-                text-align: center;
-                width: fit-content;
-            }
-            
-            .video-demo {
-                padding: 1.5rem 0 2rem 0;
-                min-height: auto;
-            }
-            
-            .video-demo .section-header {
-                margin-bottom: 2rem;
-            }
-            
-            .video-demo .section-subtitle .mobile-hide {
-                display: none;
-            }
-            
-            .video-demo .section-subtitle .mobile-show {
-                display: inline;
-            }
+            .video-demo { padding: 3rem 0; min-height: auto; }
+            .video-demo .section-subtitle .mobile-hide { display: none; }
+            .video-demo .section-subtitle .mobile-show { display: inline; }
 
             .hero-container {
                 grid-template-columns: 1fr;
                 gap: 2rem;
                 text-align: center;
+                padding: 3rem 1.5rem;
             }
 
-            .hero-content {
-                order: 1;
-            }
+            .hero::before { display: none; }
+            .hero-content { order: 1; }
+            .hero-visual { order: 2; }
 
-            .hero-visual {
-                order: 2;
-                margin-top: 0;
-                margin-right: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+            .device-showcase { max-width: 100%; }
+            .device-screen { min-height: 320px; }
+            .device-screen::before { width: 320px; height: 320px; }
 
-            .device-showcase {
-                width: 85vw;
-                max-width: 400px;
-                height: 500px;
-                margin-top: 2rem;
-            }
+            .hero-stats { grid-template-columns: repeat(3, 1fr); }
+            .stat-item { padding: 1rem 0.75rem; text-align: center; }
+            .stat-number { font-size: 1.375rem; }
+            .stat-label { font-size: 0.75rem; }
 
-            .device-screen {
-                top: 25px;
-                left: 25px;
-                right: 25px;
-                bottom: 90px;
-            }
+            .hero-cta-group { flex-direction: column; align-items: center; }
 
-            .device-image {
-                width: 85%;
-                max-width: 320px;
-            }
-
-            .hero-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-                padding: 0 1rem;
-            }
-
-            .stat-item {
-                text-align: center;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-
-            .stat-label {
-                font-size: 0.75rem;
-            }
-
-            .hero-cta-group {
-                flex-direction: column;
-            }
-
-            .video-info {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                padding: 2rem;
-            }
-
-            .video-info-item {
-                padding: 1rem;
-                background: var(--surface-light);
-                border-radius: var(--border-radius-sm);
-            }
+            .video-info { grid-template-columns: 1fr; }
+            .video-info-item { border-right: none; border-bottom: 1px solid var(--border-color); }
+            .video-info-item:last-child { border-bottom: none; }
 
             .tech-showcase,
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+            .contact-container { grid-template-columns: 1fr; gap: 2.5rem; }
 
-            .tech-metrics {
-                grid-template-columns: 1fr;
-            }
-
-            .tech-visual {
-                height: 300px;
-                max-width: 400px;
-            }
-
-            .tech-diagram {
-                width: 250px;
-                height: 250px;
-            }
-
-            .diagram-element {
-                width: 80px;
-                height: 80px;
-                font-size: 1.2rem;
-            }
-
-            .pricing-features {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-number {
-                font-size: 1.2rem;
-            }
-
-            .stat-label {
-                font-size: 0.7rem;
-            }
+            .tech-metrics { grid-template-columns: 1fr 1fr; }
+            .tech-visual { height: 280px; }
+            .tech-diagram { width: 220px; height: 220px; }
+            .diagram-element { width: 68px; height: 68px; font-size: 1.25rem; }
+            .pricing-features { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; background: none; border: none; gap: 1px; }
+            .apps-grid { grid-template-columns: 1fr; background: none; border: none; gap: 1px; }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
+            .container { padding: 0 1rem; }
+            .features, .technology, .pricing, .applications, .contact { padding: 4rem 0; }
+            .video-demo { padding: 2.5rem 0; }
 
-            .hero,
-            .features,
-            .technology,
-            .pricing,
-            .applications,
-            .contact {
-                padding: 4rem 0;
-            }
-            
-            .video-demo {
-                padding: 1rem 0 1.5rem 0;
-            }
+            .hero-stats { gap: 0; }
+            .stat-item { padding: 0.875rem 0.5rem; }
+            .stat-number { font-size: 1.25rem; }
+            .stat-label { font-size: 0.6875rem; }
 
-            .video-info {
-                padding: 1.5rem;
-                gap: 1rem;
-            }
+            .tech-visual { height: 260px; }
+            .tech-diagram { width: 180px; height: 180px; }
+            .diagram-element { width: 56px; height: 56px; font-size: 1rem; }
+        }
 
-            .video-info-item i {
-                font-size: 1.5rem;
-                width: 45px;
-                height: 45px;
-                min-width: 45px;
-            }
+        /* ── Fluent Icon base styles ── */
+        .fluent-icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.125em;
+            flex-shrink: 0;
+        }
 
-            .features-grid,
-            .apps-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Tint icons to match theme colors using CSS filter */
+        .fluent-icon-white {
+            filter: brightness(0) invert(1);
+        }
 
-            .device-showcase {
-                width: 80vw;
-                max-width: 360px;
-                height: 450px;
-            }
+        .fluent-icon-blue {
+            filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%);
+        }
 
-            .device-screen {
-                top: 20px;
-                left: 20px;
-                right: 20px;
-                bottom: 80px;
-            }
+        .fluent-icon-dark {
+            filter: invert(8%) sepia(57%) saturate(1800%) hue-rotate(204deg) brightness(70%) contrast(110%);
+        }
 
-            .hero-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.5rem;
-                padding: 0 0.5rem;
-            }
+        /* Icon inside colored square/circle containers stays white */
+        .feature-icon .fluent-icon,
+        .app-icon .fluent-icon,
+        .video-info-item .fluent-icon-box .fluent-icon {
+            filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%);
+            width: 1.375rem;
+            height: 1.375rem;
+        }
 
-            .stat-number {
-                font-size: 1.2rem;
-            }
+        .contact-item-icon .fluent-icon {
+            filter: brightness(0) invert(1);
+            width: 1.25rem;
+            height: 1.25rem;
+        }
 
-            .stat-label {
-                font-size: 0.7rem;
-            }
+        .diagram-element .fluent-icon {
+            filter: brightness(0) invert(1);
+            width: 1.5rem;
+            height: 1.5rem;
+        }
 
-            .tech-visual {
-                height: 300px;
-                max-width: 300px;
-            }
+        .btn-primary .fluent-icon,
+        .nav-cta .fluent-icon,
+        .form-submit .fluent-icon {
+            filter: brightness(0) invert(1);
+            width: 1rem;
+            height: 1rem;
+        }
 
-            .tech-diagram {
-                width: 200px;
-                height: 200px;
-            }
+        .btn-secondary .fluent-icon {
+            filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%);
+            width: 1rem;
+            height: 1rem;
+        }
 
-            .diagram-element {
-                width: 60px;
-                height: 60px;
-                font-size: 1rem;
-            }
+        .section-badge .fluent-icon,
+        .hero-badge .fluent-icon {
+            filter: brightness(0) invert(1);
+            width: 0.875rem;
+            height: 0.875rem;
+        }
 
-            .screen-text {
-                font-size: 0.8rem;
-            }
+        .pricing-savings .fluent-icon {
+            filter: brightness(0) invert(1);
+            width: 0.875rem;
+            height: 0.875rem;
+        }
+
+        .pricing-feature .fluent-icon {
+            filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%);
+            width: 1rem;
+            height: 1rem;
+            flex-shrink: 0;
+        }
+
+        .nav-icon-btn .fluent-icon {
+            filter: invert(8%) sepia(57%) saturate(1800%) hue-rotate(204deg) brightness(70%) contrast(110%);
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .nav-icon-btn:hover .fluent-icon {
+            filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%);
+        }
+
+        .hamburger .fluent-icon {
+            filter: invert(8%) sepia(57%) saturate(1800%) hue-rotate(204deg) brightness(70%) contrast(110%);
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .footer-lang-btn .fluent-icon {
+            filter: invert(30%) sepia(0%) saturate(0%) brightness(60%) contrast(90%);
+            width: 1rem;
+            height: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .ri-spin {
+            display: inline-block;
+            animation: spin 1s linear infinite;
         }
     </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Navigation — Microsoft style -->
+    <nav class="navbar nav-visible">
         <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-heartbeat"></i>
-                Sahrang UroFLOWs
-            </div>
-            <button class="hamburger">
-                <i class="fas fa-bars"></i>
-            </button>
+            <!-- Logo — clickable to reload -->
+            <a href="/" class="logo" onclick="window.scrollTo({top:0,behavior:'instant'}); window.location.href='/'; return false;">
+                <img src="Blue_logo_transperent.png" alt="Sahrang Logo" style="height: 36px;">
+                Sahrang Medtech
+            </a>
+
+            <!-- Desktop nav links -->
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#technology">Technology</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#applications">Applications</a></li>
             </ul>
+
+            <!-- Right side controls -->
+            <div class="nav-right">
+                <button class="nav-icon-btn" aria-label="Search">
+                    <i class="ri-search-line"></i>
+                    Search
+                </button>
+                <div class="nav-divider"></div>
+                <a href="#contact" class="nav-cta">Get Quote</a>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button class="hamburger" aria-label="Open menu">
+                <i class="ri-menu-line" id="hamburgerIcon"></i>
+            </button>
+
+            <!-- Mobile dropdown -->
             <ul class="nav-links-mobile">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#technology">Technology</a></li>
@@ -1318,67 +1413,15 @@
                 <li><a href="#applications">Applications</a></li>
                 <li><a href="#contact" class="nav-cta">Get Quote</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">Get Quote</a>
         </div>
     </nav>
-
-    <!-- Video Demo Section
-    <section id="video-demo" class="video-demo">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-badge">
-                    <i class="fas fa-play-circle"></i>
-                    Product Demo
-                </div>
-                <h2 class="section-title">See Our Prototype in Action</h2>
-                <p class="section-subtitle">
-                    <span class="mobile-hide">Watch how our revolutionary AI-powered uroflowmeter prototype works in real-time.</span>
-                    <span class="mobile-show">AI-powered uroflowmeter in action.</span>
-                </p>
-            </div>
-            <div class="video-card animate-on-scroll">
-                <div class="video-wrapper">
-                    <iframe 
-                        src="https://drive.google.com/file/d/1YD8iYQnO92n-HJalcKNwj7tvVX59oJYB/preview" 
-                        allow="autoplay"
-                        allowfullscreen
-                        loading="lazy"
-                        sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox">
-                    </iframe>
-                </div>
-                <div class="video-info">
-                    <div class="video-info-item">
-                        <i class="fas fa-microchip"></i>
-                        <div>
-                            <h4>Smart Sensors</h4>
-                            <p>Precision flow measurement technology</p>
-                        </div>
-                    </div>
-                    <div class="video-info-item">
-                        <i class="fas fa-wifi"></i>
-                        <div>
-                            <h4>Wireless Data</h4>
-                            <p>Real-time cloud synchronization</p>
-                        </div>
-                    </div>
-                    <div class="video-info-item">
-                        <i class="fas fa-chart-line"></i>
-                        <div>
-                            <h4>AI Analysis</h4>
-                            <p>Instant diagnostic insights</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <i class="fas fa-award"></i>
+                    <i class="ri-award-line"></i>
                     Revolutionary AI Technology
                 </div>
                 <h1 class="hero-title">Next-Generation Uroflowmetry Solutions</h1>
@@ -1388,12 +1431,16 @@
                 </p>
                 <div class="hero-cta-group">
                     <a href="#contact" class="btn-primary">
-                        <i class="fas fa-rocket"></i>
+                        <!-- <i class="ri-rocket-line"></i> -->
                         Start Your Journey
                     </a>
                     <a href="#video-demo" class="btn-secondary">
-                        <i class="fas fa-play"></i>
-                        See How It Works
+                        <span class="btn-secondary-text">See How It Works</span>
+                        <span class="btn-secondary-arrow">
+                            <svg width="8" height="25" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.5 1.5L8.5 8L1.5 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
                     </a>
                 </div>
                 <div class="hero-stats">
@@ -1414,12 +1461,8 @@
             <div class="hero-visual">
                 <div class="device-showcase">
                     <div class="device-screen">
-                        <img src="uroflowmeter.jpg" alt="Sahrang UroFLOWs Device" class="device-image"
-                            aria-label="Sahrang UroFLOWs AI-powered uroflowmetry device">
-                        <div class="screen-text">
-                            <i class="fas fa-heartbeat screen-icon"></i>
-                            <p>AI-Powered Uroflowmetry</p>
-                        </div>
+                        <img src="uroflowmeter.jpg" alt="Sahrang Medtech Device" class="device-image"
+                            aria-label="Sahrang Medtech AI-powered uroflowmetry device">
                     </div>
                 </div>
             </div>
@@ -1431,10 +1474,10 @@
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="section-badge">
-                    <i class="fas fa-star"></i>
+                    <i class="ri-sparkling-line"></i>
                     Advanced Features
                 </div>
-                <h2 class="section-title">Why Choose Sahrang UroFLOWs?</h2>
+                <h2 class="section-title">Why Choose Sahrang UroFlows?</h2>
                 <p class="section-subtitle">
                     Experience the future of uroflowmetry with our cutting-edge AI technology,
                     wireless connectivity, and user-friendly design.
@@ -1442,64 +1485,34 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
+                    <div class="feature-icon"><i class="ri-brain-line"></i></div>
                     <h3 class="feature-title">AI-Powered Analysis</h3>
-                    <p class="feature-description">
-                        Advanced machine learning algorithms provide precise flow measurements and
-                        intelligent pattern recognition for accurate diagnosis.
-                    </p>
+                    <p class="feature-description">Advanced machine learning algorithms provide precise flow measurements and intelligent pattern recognition for accurate diagnosis.</p>
                 </div>
                 <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-wifi"></i>
-                    </div>
+                    <div class="feature-icon"><i class="ri-wifi-line"></i></div>
                     <h3 class="feature-title">Wireless Connectivity</h3>
-                    <p class="feature-description">
-                        Seamless data transmission to your EMR system with secure cloud integration
-                        and real-time monitoring capabilities.
-                    </p>
+                    <p class="feature-description">Seamless data transmission to your EMR system with secure cloud integration and real-time monitoring capabilities.</p>
                 </div>
                 <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
+                    <div class="feature-icon"><i class="ri-money-dollar-circle-line"></i></div>
                     <h3 class="feature-title">Cost-Effective Solution</h3>
-                    <p class="feature-description">
-                        50% more affordable than traditional systems while maintaining
-                        hospital-grade accuracy and reliability.
-                    </p>
+                    <p class="feature-description">50% more affordable than traditional systems while maintaining hospital-grade accuracy and reliability.</p>
                 </div>
                 <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
+                    <div class="feature-icon"><i class="ri-smartphone-line"></i></div>
                     <h3 class="feature-title">Mobile Integration</h3>
-                    <p class="feature-description">
-                        Dedicated mobile app for healthcare providers with instant notifications,
-                        report generation, and patient management.
-                    </p>
+                    <p class="feature-description">Dedicated mobile app for healthcare providers with instant notifications, report generation, and patient management.</p>
                 </div>
                 <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <div class="feature-icon"><i class="ri-shield-check-line"></i></div>
                     <h3 class="feature-title">HIPAA Compliant</h3>
-                    <p class="feature-description">
-                        Enterprise-grade security with end-to-end encryption, ensuring patient
-                        data privacy and regulatory compliance.
-                    </p>
+                    <p class="feature-description">Enterprise-grade security with end-to-end encryption, ensuring patient data privacy and regulatory compliance.</p>
                 </div>
                 <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="feature-icon"><i class="ri-line-chart-line"></i></div>
                     <h3 class="feature-title">Advanced Analytics</h3>
-                    <p class="feature-description">
-                        Comprehensive reporting dashboard with trend analysis, population health
-                        insights, and predictive modeling capabilities.
-                    </p>
+                    <p class="feature-description">Comprehensive reporting dashboard with trend analysis, population health insights, and predictive modeling capabilities.</p>
                 </div>
             </div>
         </div>
@@ -1511,7 +1524,7 @@
             <div class="tech-showcase">
                 <div class="tech-content animate-on-scroll">
                     <div class="section-badge">
-                        <i class="fas fa-cogs"></i>
+                        <i class="ri-settings-3-line"></i>
                         Innovation
                     </div>
                     <h2 class="tech-title">Cutting-Edge Technology</h2>
@@ -1539,27 +1552,17 @@
                         </div>
                     </div>
                     <a href="#contact" class="btn-primary">
-                        <i class="fas fa-rocket"></i>
+                        <i class="ri-rocket-line"></i>
                         Learn More
                     </a>
                 </div>
                 <div class="tech-visual animate-on-scroll">
                     <div class="tech-diagram">
-                        <div class="diagram-element">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="diagram-element">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="diagram-element">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <div class="diagram-element">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <div class="diagram-element">
-                            <i class="fas fa-microchip"></i>
-                        </div>
+                        <div class="diagram-element"><i class="ri-database-2-line"></i></div>
+                        <div class="diagram-element"><i class="ri-brain-line"></i></div>
+                        <div class="diagram-element"><i class="ri-bar-chart-2-line"></i></div>
+                        <div class="diagram-element"><i class="ri-cloud-line"></i></div>
+                        <div class="diagram-element"><i class="ri-cpu-line"></i></div>
                     </div>
                 </div>
             </div>
@@ -1571,61 +1574,33 @@
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="section-badge">
-                    <i class="fas fa-tag"></i>
+                    <i class="ri-price-tag-3-line"></i>
                     Affordable Pricing
                 </div>
                 <h2 class="section-title">Transform Your Practice Today</h2>
-                <p class="section-subtitle">
-                    Get enterprise-grade uroflowmetry technology at a fraction of traditional costs.
-                </p>
+                <p class="section-subtitle">Get enterprise-grade uroflowmetry technology at a fraction of traditional costs.</p>
             </div>
             <div class="pricing-card animate-on-scroll">
                 <div class="pricing-header">
                     <h3 class="pricing-title">Complete Uroflowmetry System</h3>
-                    <div class="pricing-price">
-                        <span class="pricing-currency">₹</span>25,000
-                    </div>
+                    <div class="pricing-price"><span class="pricing-currency">₹</span>25,000</div>
                     <div class="pricing-savings">
-                        <i class="fas fa-percentage"></i>
+                        <!-- <i class="ri-percent-line"></i> -->
                         Save 50% vs Traditional Systems
                     </div>
                 </div>
                 <div class="pricing-features">
-                    <div class="pricing-feature">
-                        <i class="fas fa-check"></i>
-                        <span>AI-Powered Analysis Engine</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <i class="fas fa-check"></i>
-                        <span>Wireless Data Transmission</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <i class="fas fa-check"></i>
-                        <span>Mobile App Integration</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <i class="fas fa-check"></i>
-                        <span>Cloud-Based Reporting</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <i class="fas fa-check"></i>
-                        <span>24/7 Technical Support</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <i class="fas fa-check"></i>
-                        <span>EMR System Integration</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <i class="fas fa-check"></i>
-                        <span>Training & Installation</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <i class="fas fa-check"></i>
-                        <span>3-Year Warranty</span>
-                    </div>
+                    <div class="pricing-feature"><i class="ri-check-line"></i><span>AI-Powered Analysis Engine</span></div>
+                    <div class="pricing-feature"><i class="ri-check-line"></i><span>Wireless Data Transmission</span></div>
+                    <div class="pricing-feature"><i class="ri-check-line"></i><span>Mobile App Integration</span></div>
+                    <div class="pricing-feature"><i class="ri-check-line"></i><span>Cloud-Based Reporting</span></div>
+                    <div class="pricing-feature"><i class="ri-check-line"></i><span>24/7 Technical Support</span></div>
+                    <div class="pricing-feature"><i class="ri-check-line"></i><span>EMR System Integration</span></div>
+                    <div class="pricing-feature"><i class="ri-check-line"></i><span>Training & Installation</span></div>
+                    <div class="pricing-feature"><i class="ri-check-line"></i><span>3-Year Warranty</span></div>
                 </div>
                 <a href="#contact" class="btn-primary" style="width: 100%; margin-top: 1rem;">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="ri-shopping-cart-line"></i>
                     Request Quote
                 </a>
             </div>
@@ -1637,74 +1612,42 @@
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="section-badge">
-                    <i class="fas fa-hospital"></i>
+                    <i class="ri-hospital-line"></i>
                     Clinical Applications
                 </div>
                 <h2 class="section-title">Versatile Healthcare Solutions</h2>
-                <p class="section-subtitle">
-                    Designed for diverse medical environments from small clinics to large hospitals.
-                </p>
+                <p class="section-subtitle">Designed for diverse medical environments from small clinics to large hospitals.</p>
             </div>
             <div class="apps-grid">
                 <div class="app-card animate-on-scroll">
-                    <div class="app-icon">
-                        <i class="fas fa-hospital-alt"></i>
-                    </div>
+                    <div class="app-icon"><i class="ri-hospital-line"></i></div>
                     <h3 class="app-title">Hospitals</h3>
-                    <p class="app-description">
-                        Integrate seamlessly with existing hospital infrastructure.
-                        Support multiple departments with centralized data management.
-                    </p>
+                    <p class="app-description">Integrate seamlessly with existing hospital infrastructure. Support multiple departments with centralized data management.</p>
                 </div>
                 <div class="app-card animate-on-scroll">
-                    <div class="app-icon">
-                        <i class="fas fa-clinic-medical"></i>
-                    </div>
+                    <div class="app-icon"><i class="ri-heart-pulse-line"></i></div>
                     <h3 class="app-title">Urology Clinics</h3>
-                    <p class="app-description">
-                        Perfect for specialized urology practices. Enhance patient care
-                        with precise diagnostics and comprehensive reporting.
-                    </p>
+                    <p class="app-description">Perfect for specialized urology practices. Enhance patient care with precise diagnostics and comprehensive reporting.</p>
                 </div>
                 <div class="app-card animate-on-scroll">
-                    <div class="app-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
+                    <div class="app-icon"><i class="ri-user-star-line"></i></div>
                     <h3 class="app-title">Private Practice</h3>
-                    <p class="app-description">
-                        Affordable solution for individual practitioners.
-                        Elevate your practice with professional-grade technology.
-                    </p>
+                    <p class="app-description">Affordable solution for individual practitioners. Elevate your practice with professional-grade technology.</p>
                 </div>
                 <div class="app-card animate-on-scroll">
-                    <div class="app-icon">
-                        <i class="fas fa-microscope"></i>
-                    </div>
+                    <div class="app-icon"><i class="ri-test-tube-line"></i></div>
                     <h3 class="app-title">Research Centers</h3>
-                    <p class="app-description">
-                        Advanced analytics for clinical research. Export data
-                        in multiple formats for comprehensive studies.
-                    </p>
+                    <p class="app-description">Advanced analytics for clinical research. Export data in multiple formats for comprehensive studies.</p>
                 </div>
                 <div class="app-card animate-on-scroll">
-                    <div class="app-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
+                    <div class="app-icon"><i class="ri-video-line"></i></div>
                     <h3 class="app-title">Telemedicine Providers</h3>
-                    <p class="app-description">
-                        Enable remote diagnostics with cloud-based data access.
-                        Support virtual consultations with real-time results.
-                    </p>
+                    <p class="app-description">Enable remote diagnostics with cloud-based data access. Support virtual consultations with real-time results.</p>
                 </div>
                 <div class="app-card animate-on-scroll">
-                    <div class="app-icon">
-                        <i class="fas fa-vials"></i>
-                    </div>
+                    <div class="app-icon"><i class="ri-drop-line"></i></div>
                     <h3 class="app-title">Diagnostic Labs</h3>
-                    <p class="app-description">
-                        Streamline uroflowmetry testing with high-throughput capabilities.
-                        Integrate with lab systems for efficient workflows.
-                    </p>
+                    <p class="app-description">Streamline uroflowmetry testing with high-throughput capabilities. Integrate with lab systems for efficient workflows.</p>
                 </div>
             </div>
         </div>
@@ -1716,19 +1659,17 @@
             <div class="contact-container">
                 <div class="contact-info animate-on-scroll">
                     <div class="section-badge">
-                        <i class="fas fa-handshake"></i>
+                        <i class="ri-shake-hands-line"></i>
                         Get In Touch
                     </div>
                     <h2 class="contact-title">Ready to Transform Your Practice?</h2>
                     <p class="contact-description">
-                        Contact our team of experts to learn how Sahrang UroFLOWs can
+                        Contact our team of experts to learn how Sahrang Medtech can
                         revolutionize your uroflowmetry procedures and improve patient outcomes.
                     </p>
                     <div class="contact-details">
                         <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
+                            <div class="contact-item-icon"><i class="ri-phone-line"></i></div>
                             <div class="contact-item-content">
                                 <h4>Phone Support</h4>
                                 <p>+91 74884 87969</p>
@@ -1736,23 +1677,19 @@
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
+                            <div class="contact-item-icon"><i class="ri-mail-line"></i></div>
                             <div class="contact-item-content">
                                 <h4>Email Support</h4>
-                                <p>sahrangmedtech@gmail.com</p>
+                                <p>contact@sahrangmedtech.systems</p>
                                 <p>Response within 24 hours</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
+                            <div class="contact-item-icon"><i class="ri-map-pin-2-line"></i></div>
                             <div class="contact-item-content">
                                 <h4>Office Location</h4>
-                                <p>UNIT 101, OXFORD TOWERS, 139, HAL OLD AIRPORT RD, H.A.L II Stage</p>
-                                <p>Bangalore, Karnataka, India - 560008</p>
+                                <p>UNIT 101, OXFORD TOWERS, 139, HAL OLD AIRPORT RD, H.A.L II Stage, Bangalore North</p>
+                                <p>Karnataka, India - 560008</p>
                             </div>
                         </div>
                     </div>
@@ -1781,7 +1718,7 @@
                                 placeholder="Tell us about your requirements..."></textarea>
                         </div>
                         <button type="submit" class="form-submit">
-                            <i class="fas fa-paper-plane"></i>
+                            <!-- <i class="ri-send-plane-line"></i> -->
                             Send Message
                         </button>
                     </form>
@@ -1790,53 +1727,86 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer style="background: var(--surface-dark); color: var(--text-light); padding: 3rem 0 1rem;">
-        <div class="container">
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-                <div>
-                    <div class="logo" style="color: var(--accent-cyan); font-size: 1.25rem; margin-bottom: 1rem;">
-                        <i class="fas fa-heartbeat"></i>
-                        Sahrang UroFLOWs
+    <!-- Footer — Microsoft style -->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-col">
+                    <div style="margin-bottom: 1.25rem;">
+                        <div style="display:flex; align-items:center; gap:8px; color:#002050; font-weight:700; font-size:0.9375rem;">
+                            <img src="Blue_logo_transperent.png" alt="Sahrang Logo" style="height:28px;">
+                            Sahrang Medtech
+                        </div>
+                        <p style="font-size:0.8125rem; color:#555; margin-top:0.75rem; line-height:1.6;">
+                            AI-powered uroflowmetry — precision, connectivity, and affordable innovation.
+                        </p>
                     </div>
-                    <p style="color: #ccc; line-height: 1.6;">
-                        Revolutionizing uroflowmetry with AI-powered precision,
-                        wireless connectivity, and affordable innovation.
-                    </p>
                 </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem; color: var(--accent-cyan);">Quick Links</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 0.5rem;"><a href="#features"
-                                style="color: #ccc; text-decoration: none;">Features</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#technology"
-                                style="color: #ccc; text-decoration: none;">Technology</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#pricing"
-                                style="color: #ccc; text-decoration: none;">Pricing</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#applications"
-                                style="color: #ccc; text-decoration: none;">Applications</a></li>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#applications">Applications</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem; color: var(--accent-cyan);">Support</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 0.5rem;"><a href="#"
-                                style="color: #ccc; text-decoration: none;">Documentation</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#"
-                                style="color: #ccc; text-decoration: none;">Training</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#"
-                                style="color: #ccc; text-decoration: none;">Technical Support</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#"
-                                style="color: #ccc; text-decoration: none;">Warranty</a></li>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Training</a></li>
+                        <li><a href="#">Technical Support</a></li>
+                        <li><a href="#">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+917488487969">+91 74884 87969</a></li>
+                        <li><a href="mailto:contact@sahrangmedtech.systems">contact@sahrangmedtech.systems</a></li>
+                        <li><a href="#contact">Get a Quote</a></li>
                     </ul>
                 </div>
             </div>
-            <div style="border-top: 1px solid #444; padding-top: 1rem; text-align: center; color: #999;">
-                <p>© 2025 Sahrang UroFLOWs. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+
+        <!-- Bottom bar — Microsoft style -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-left">
+                    <!-- Globe / language -->
+                    <button class="footer-lang-btn" aria-label="Language selector">
+                        <i class="ri-global-line"></i>
+                        English (India)
+                    </button>
+
+                    <!-- Privacy toggle — Microsoft style -->
+                    <span class="footer-privacy-toggle">
+                        <span class="ms-toggle" aria-label="Privacy toggle">
+                            <span class="ms-toggle-dot"></span>
+                        </span>
+                        Your Privacy Choices
+                    </span>
+
+                    <a href="#" class="footer-bottom-link">Consumer Health Privacy</a>
+                </div>
+
+                <div class="footer-bottom-right">
+                    <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                    <a href="#" class="footer-bottom-link">Terms of Use</a>
+                    <a href="#" class="footer-bottom-link">Trademarks</a>
+                    <span class="footer-copyright">© 2026 Sahrang Medtech</span>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top — Microsoft style -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <span class="btt-arrow"></span>
+        Back to top
+    </a>
 
     <script>
         // Suppress Google Drive embed console noise (optional)
@@ -1867,19 +1837,38 @@
                         behavior: 'smooth'
                     });
                     document.querySelector('.nav-links-mobile').classList.remove('active');
-                    document.querySelector('.hamburger i').classList.remove('fa-times');
-                    document.querySelector('.hamburger i').classList.add('fa-bars');
+                    // Reset hamburger icon
+                    const hamburgerIcon = document.getElementById('hamburgerIcon');
+                    if (hamburgerIcon) hamburgerIcon.src = 'https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/icons/list_24_regular.svg';
                 }
             });
         });
 
-        // Hamburger menu toggle
+        // Hamburger menu toggle — swap icon src instead of class
         document.querySelector('.hamburger').addEventListener('click', function () {
             const mobileMenu = document.querySelector('.nav-links-mobile');
-            const icon = this.querySelector('i');
+            const icon = document.getElementById('hamburgerIcon');
             mobileMenu.classList.toggle('active');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            if (mobileMenu.classList.contains('active')) {
+                icon.className = 'ri-close-line';
+            } else {
+                icon.className = 'ri-menu-line';
+            }
+        });
+
+        // Reset hamburger on smooth scroll nav click
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    window.scrollTo({ top: target.offsetTop - navbarHeight, behavior: 'smooth' });
+                    document.querySelector('.nav-links-mobile').classList.remove('active');
+                    const hamburgerIcon = document.getElementById('hamburgerIcon');
+                    if (hamburgerIcon) hamburgerIcon.className = 'ri-menu-line';
+                }
+            });
         });
 
         // Scroll animations
@@ -1912,27 +1901,68 @@
             }
         });
 
+        // ── Navbar hide/show on scroll ──
+        let lastScrollY = window.scrollY;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function () {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY < 80) {
+                // Always show near top
+                navbar.classList.remove('nav-hidden');
+                navbar.classList.add('nav-visible');
+            } else if (currentScrollY > lastScrollY + 4) {
+                // Scrolling down — hide
+                navbar.classList.add('nav-hidden');
+                navbar.classList.remove('nav-visible');
+            } else if (currentScrollY < lastScrollY - 4) {
+                // Scrolling up — show
+                navbar.classList.remove('nav-hidden');
+                navbar.classList.add('nav-visible');
+            }
+
+            lastScrollY = currentScrollY;
+
+            // Box shadow when scrolled
+            if (currentScrollY > 20) {
+                navbar.style.boxShadow = '0 2px 8px rgba(0,32,80,0.10)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+
+            // Back to top visibility
+            const btt = document.getElementById('backToTop');
+            if (currentScrollY > 400) {
+                btt.classList.add('visible');
+            } else {
+                btt.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        // ── Back to top click ──
+        document.getElementById('backToTop').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
         // Form submission
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
             const submitBtn = this.querySelector('.form-submit');
             const originalText = submitBtn.innerHTML;
 
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Sending...';
             submitBtn.disabled = true;
 
             setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                submitBtn.style.background = 'var(--medical-green)';
+                submitBtn.innerHTML = '<i class="ri-check-line"></i> Message Sent!';
+                submitBtn.style.background = '#002050';
 
                 setTimeout(() => {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
-                    submitBtn.style.background = 'var(--gradient-primary)';
+                    submitBtn.style.background = '#1160B7';
                     this.reset();
                 }, 2000);
             }, 1500);
@@ -1940,33 +1970,7 @@
 
         // Enhanced device showcase interaction
         const device = document.querySelector('.device-showcase');
-        if (device) {
-            document.addEventListener('mousemove', (e) => {
-                const rect = device.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const mouseX = (e.clientX - centerX) / (rect.width / 2);
-                const mouseY = (e.clientY - centerY) / (rect.height / 2);
-
-                const rotateX = mouseY * 10;
-                const rotateY = mouseX * 10;
-
-                device.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-
-            device.addEventListener('mouseleave', () => {
-                device.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
-            });
-
-            device.addEventListener('mouseenter', () => {
-                device.style.boxShadow = `var(--shadow-heavy), 0 0 30px rgba(0, 102, 204, 0.5)`;
-            });
-            device.addEventListener('mouseleave', () => {
-                device.style.boxShadow = `var(--shadow-heavy), 0 0 20px rgba(0, 102, 204, 0.3)`;
-            });
-        }
+        // Removed erratic mousemove 3D tilt — hover effect handled by CSS only
     </script>
 </body>
-
-
 </html>
