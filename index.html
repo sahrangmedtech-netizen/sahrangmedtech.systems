@@ -1378,7 +1378,7 @@
         <div class="nav-container">
             <!-- Logo — clickable to reload -->
             <a href="/" class="logo" onclick="window.scrollTo({top:0,behavior:'instant'}); window.location.href='/'; return false;">
-                <img src="Blue_logo_transperent.png" alt="Sahrang Logo" style="height: 36px;">
+                <img src="/Images/Blue_logo_transperent.png" alt="Sahrang Logo" style="height: 36px;">
                 Sahrang Medtech
             </a>
 
@@ -1461,7 +1461,7 @@
             <div class="hero-visual">
                 <div class="device-showcase">
                     <div class="device-screen">
-                        <img src="uroflowmeter.jpg" alt="Sahrang Medtech Device" class="device-image"
+                        <img src="/Images/uroflowmeter.jpg" alt="Sahrang Medtech Device" class="device-image"
                             aria-label="Sahrang Medtech AI-powered uroflowmetry device">
                     </div>
                 </div>
@@ -1695,7 +1695,7 @@
                     </div>
                 </div>
                 <div class="contact-form animate-on-scroll">
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/f/xdalbjrq" method="POST">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -1946,8 +1946,8 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
+        // Form submission — Formspree
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
             e.preventDefault();
             const submitBtn = this.querySelector('.form-submit');
             const originalText = submitBtn.innerHTML;
@@ -1955,17 +1955,46 @@
             submitBtn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Sending...';
             submitBtn.disabled = true;
 
-            setTimeout(() => {
-                submitBtn.innerHTML = '<i class="ri-check-line"></i> Message Sent!';
-                submitBtn.style.background = '#002050';
+            try {
+                const response = await fetch(this.action, {
+                    method: this.method,
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
 
+                if (response.ok) {
+                    submitBtn.innerHTML = '<i class="ri-check-line"></i> Message Sent!';
+                    submitBtn.style.background = '#002050';
+                    this.reset();
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '#1160B7';
+                    }, 3000);
+                } else {
+                    const data = await response.json();
+                    const errorMsg = (data && data.errors)
+                        ? data.errors.map(err => err.message).join(', ')
+                        : 'Submission failed. Please try again.';
+                    submitBtn.innerHTML = '<i class="ri-error-warning-line"></i> Error — Retry';
+                    submitBtn.style.background = '#A4262C';
+                    alert(errorMsg);
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '#1160B7';
+                    }, 2000);
+                }
+            } catch (err) {
+                submitBtn.innerHTML = '<i class="ri-error-warning-line"></i> Network Error';
+                submitBtn.style.background = '#A4262C';
+                alert('Network error. Please check your connection and try again.');
                 setTimeout(() => {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                     submitBtn.style.background = '#1160B7';
-                    this.reset();
                 }, 2000);
-            }, 1500);
+            }
         });
 
         // Enhanced device showcase interaction
