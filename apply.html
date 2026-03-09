@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply — Sahrang Medtech</title>
+    <meta name="description" content="Submit your application to join the Sahrang Medtech team.">
+    <link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/apply.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar nav-visible">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="Images/Blue_logo_transperent.png" alt="Sahrang Logo" style="height: 36px;">
+                Sahrang Medtech
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#technology">Technology</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/#applications">Applications</a></li>
+                <li><a href="/careers.html">Careers</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="/#contact" class="nav-icon-btn">
+                    <i class="ri-phone-line"></i>
+                    Contact
+                </a>
+                <div class="nav-divider"></div>
+                <a href="/#contact" class="nav-cta">Get Quote</a>
+            </div>
+            <button class="hamburger" aria-label="Open menu">
+                <i class="ri-menu-line" id="hamburgerIcon"></i>
+            </button>
+            <ul class="nav-links-mobile">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#technology">Technology</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/#applications">Applications</a></li>
+                <li><a href="/careers.html">Careers</a></li>
+                <li><a href="/#contact" class="nav-cta">Get Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- ── Page Hero ─────────────────────────────────────────── -->
+    <section class="apply-hero">
+        <div class="container">
+            <a href="/careers.html" class="apply-back-link">
+                <i class="ri-arrow-left-line"></i> Back to Open Roles
+            </a>
+            <div class="apply-hero-content">
+                <div class="section-badge" style="margin-bottom: 1rem;">
+                    <i class="ri-file-user-line"></i>
+                    Application Form
+                </div>
+                <h1 class="apply-hero-title">Apply to Sahrang Medtech</h1>
+                <p class="apply-hero-sub">
+                    You are applying for: <strong id="applyRoleDisplay">—</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ── Two-column layout (form + sidebar) ────────────────── -->
+    <div class="apply-layout">
+        <div class="container">
+            <div class="apply-grid">
+
+                <!-- ── MAIN FORM ─────────────────────────────── -->
+                <form
+                    id="applicationForm"
+                    class="apply-form"
+                    action="https://formspree.io/f/mzdjdbzg"
+                    method="POST"
+                    novalidate
+                >
+                    <!-- Hidden: position field populated by JS -->
+                    <input type="hidden" name="position" id="positionHidden">
+
+                    <!-- ── Section 1: Personal Information ─── -->
+                    <div class="form-section">
+                        <div class="form-section-head">
+                            <span class="form-section-num">01</span>
+                            <div>
+                                <h2 class="form-section-title">Personal Information</h2>
+                                <p class="form-section-desc">Basic contact details so we can reach you.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row two-col">
+                            <div class="form-field">
+                                <label for="firstName">First Name <span class="req">*</span></label>
+                                <input type="text" id="firstName" name="first_name" placeholder="Aanya" required autocomplete="given-name">
+                            </div>
+                            <div class="form-field">
+                                <label for="lastName">Last Name <span class="req">*</span></label>
+                                <input type="text" id="lastName" name="last_name" placeholder="Sharma" required autocomplete="family-name">
+                            </div>
+                        </div>
+
+                        <div class="form-row two-col">
+                            <div class="form-field">
+                                <label for="email">Email Address <span class="req">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="aanya@example.com" required autocomplete="email">
+                            </div>
+                            <div class="form-field">
+                                <label for="phone">Phone Number <span class="req">*</span></label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <div class="form-row two-col">
+                            <div class="form-field">
+                                <label for="city">City / Location <span class="req">*</span></label>
+                                <input type="text" id="city" name="city" placeholder="Bangalore" required autocomplete="address-level2">
+                            </div>
+                            <div class="form-field">
+                                <label for="linkedin">LinkedIn Profile URL</label>
+                                <input type="text" id="linkedin" name="linkedin_url" placeholder="https://linkedin.com/in/yourprofile" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="portfolio">Portfolio / GitHub URL</label>
+                                <input type="text" id="portfolio" name="portfolio_url" placeholder="https://github.com/yourusername" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ── Section 2: Role Details ─────────── -->
+                    <div class="form-section">
+                        <div class="form-section-head">
+                            <span class="form-section-num">02</span>
+                            <div>
+                                <h2 class="form-section-title">Role Details</h2>
+                                <p class="form-section-desc">Confirming the position and how you found us.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="positionDisplay">Position Applied For <span class="req">*</span></label>
+                                <input type="text" id="positionDisplay" name="position_display" readonly class="readonly-field">
+                                <span class="field-hint"><i class="ri-information-line"></i> Auto-filled based on the role you selected.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row two-col">
+                            <div class="form-field">
+                                <label for="employmentType">Employment Type <span class="req">*</span></label>
+                                <select id="employmentType" name="employment_type" required>
+                                    <option value="" disabled selected>Select type</option>
+                                    <option value="Full-Time">Full-Time</option>
+                                    <option value="Internship">Internship</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="hearAbout">How did you hear about us? <span class="req">*</span></label>
+                                <select id="hearAbout" name="hear_about" required>
+                                    <option value="" disabled selected>Select source</option>
+                                    <option value="Company Website">Company Website</option>
+                                    <option value="LinkedIn">LinkedIn</option>
+                                    <option value="Referral — Colleague / Friend">Referral — Colleague / Friend</option>
+                                    <option value="College / University Placement">College / University Placement</option>
+                                    <option value="Job Portal (Naukri / Internshala etc.)">Job Portal (Naukri / Internshala etc.)</option>
+                                    <option value="Social Media">Social Media</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ── Section 3: Education ───────────── -->
+                    <div class="form-section">
+                        <div class="form-section-head">
+                            <span class="form-section-num">03</span>
+                            <div>
+                                <h2 class="form-section-title">Education</h2>
+                                <p class="form-section-desc">Your highest or current qualification.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row two-col">
+                            <div class="form-field">
+                                <label for="degree">Highest / Current Degree <span class="req">*</span></label>
+                                <select id="degree" name="degree" required>
+                                    <option value="" disabled selected>Select degree</option>
+                                    <option value="B.Tech / B.E.">B.Tech / B.E.</option>
+                                    <option value="M.Tech / M.E.">M.Tech / M.E.</option>
+                                    <option value="M.Sc">M.Sc</option>
+                                    <option value="BCA / MCA">BCA / MCA</option>
+                                    <option value="MBA">MBA</option>
+                                    <option value="Ph.D.">Ph.D.</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="fieldOfStudy">Field of Study <span class="req">*</span></label>
+                                <input type="text" id="fieldOfStudy" name="field_of_study" placeholder="Computer Science & Engineering" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row two-col">
+                            <div class="form-field">
+                                <label for="institution">Institution Name <span class="req">*</span></label>
+                                <input type="text" id="institution" name="institution" placeholder="IIT Bangalore / RVCE etc." required>
+                            </div>
+                            <div class="form-field">
+                                <label for="gradYear">Graduation Year (Actual / Expected) <span class="req">*</span></label>
+                                <input type="number" id="gradYear" name="graduation_year" placeholder="2025" min="2020" max="2030" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="cgpa">CGPA / Percentage <span class="form-label-optional">(optional)</span></label>
+                                <input type="text" id="cgpa" name="cgpa" placeholder="8.4 / 10 or 84%">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ── Section 4: Experience ──────────── -->
+                    <div class="form-section">
+                        <div class="form-section-head">
+                            <span class="form-section-num">04</span>
+                            <div>
+                                <h2 class="form-section-title">Experience &amp; Background</h2>
+                                <p class="form-section-desc">Tell us about your professional or academic background.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row two-col">
+                            <div class="form-field">
+                                <label for="experienceYears">Years of Relevant Experience</label>
+                                <select id="experienceYears" name="experience_years">
+                                    <option value="" disabled selected>Select range</option>
+                                    <option value="Student / Fresher (0 years)">Student / Fresher (0 years)</option>
+                                    <option value="Less than 1 year">Less than 1 year</option>
+                                    <option value="1–2 years">1–2 years</option>
+                                    <option value="2–4 years">2–4 years</option>
+                                    <option value="4–7 years">4–7 years</option>
+                                    <option value="7+ years">7+ years</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="currentRole">Current / Most Recent Role <span class="form-label-optional">(optional)</span></label>
+                                <input type="text" id="currentRole" name="current_role" placeholder="Software Engineer Intern / Student">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="currentOrg">Current / Most Recent Organisation <span class="form-label-optional">(optional)</span></label>
+                                <input type="text" id="currentOrg" name="current_organisation" placeholder="Organisation or University name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="skills">Key Skills &amp; Technologies <span class="req">*</span></label>
+                                <textarea id="skills" name="skills_technologies" rows="3" placeholder="e.g. Python, React, PostgreSQL, Docker, REST APIs, C/C++, Git …" required></textarea>
+                                <span class="field-hint"><i class="ri-information-line"></i> List the tools, languages, and frameworks most relevant to the role.</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ── Section 5: Your Application ────── -->
+                    <div class="form-section">
+                        <div class="form-section-head">
+                            <span class="form-section-num">05</span>
+                            <div>
+                                <h2 class="form-section-title">Your Application</h2>
+                                <p class="form-section-desc">This is the most important section. Take your time.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="whySahrang">Why do you want to join Sahrang Medtech? <span class="req">*</span></label>
+                                <textarea id="whySahrang" name="why_sahrang" rows="5" placeholder="Tell us what draws you specifically to Sahrang Medtech and this role. What aspects of our mission — building intelligent diagnostic tools for Indian healthcare — resonate with you?" required></textarea>
+                                <span class="field-hint"><i class="ri-information-line"></i> Aim for 150–300 words. Generic answers are not helpful to either side.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="relevantWork">Describe a Project or Experience Relevant to This Role <span class="req">*</span></label>
+                                <textarea id="relevantWork" name="relevant_project_or_experience" rows="5" placeholder="Describe one project, internship, or academic experience that is most directly relevant to this role. What was the problem, what did you build, what was your contribution, and what did you learn?" required></textarea>
+                                <span class="field-hint"><i class="ri-information-line"></i> Focus on depth over breadth. One strong example beats a list of names.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="anythingElse">Anything Else You'd Like Us to Know <span class="form-label-optional">(optional)</span></label>
+                                <textarea id="anythingElse" name="additional_information" rows="3" placeholder="Open-source contributions, publications, competitions, circumstances that add context to your application, etc."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ── Section 6: Availability ────────── -->
+                    <div class="form-section">
+                        <div class="form-section-head">
+                            <span class="form-section-num">06</span>
+                            <div>
+                                <h2 class="form-section-title">Availability</h2>
+                                <p class="form-section-desc">We are based in central Bangalore; this is a full-time, on-site role.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label class="field-label-block">Are you available to work full-time on-site in Bangalore? <span class="req">*</span></label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="onsite_availability" value="Yes — immediately available" required>
+                                        <span class="radio-mark"></span>
+                                        Yes — immediately available
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="onsite_availability" value="Yes — available from a specific date">
+                                        <span class="radio-mark"></span>
+                                        Yes — available from a specific date
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="onsite_availability" value="Not at this time">
+                                        <span class="radio-mark"></span>
+                                        Not at this time
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row two-col">
+                            <div class="form-field">
+                                <label for="startDate">Earliest Available Start Date <span class="req">*</span></label>
+                                <input type="date" id="startDate" name="earliest_start_date" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="noticePeriod">Notice Period / Commitment Duration <span class="form-label-optional">(optional)</span></label>
+                                <select id="noticePeriod" name="notice_period">
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="Immediate">Immediate</option>
+                                    <option value="2 weeks">2 weeks</option>
+                                    <option value="1 month">1 month</option>
+                                    <option value="2 months">2 months</option>
+                                    <option value="3 months">3 months</option>
+                                    <option value="3–6 months (internship)">3–6 months (internship)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ── Section 7: Documents ───────────── -->
+                    <div class="form-section">
+                        <div class="form-section-head">
+                            <span class="form-section-num">07</span>
+                            <div>
+                                <h2 class="form-section-title">Documents</h2>
+                                <p class="form-section-desc">Share your CV via a Google Drive or Dropbox link, and optionally include a cover letter.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="resumeLink">Resume / CV Link <span class="req">*</span></label>
+                                <input
+                                    type="url"
+                                    id="resumeLink"
+                                    name="resume_link"
+                                    placeholder="https://drive.google.com/file/d/your-cv-link"
+                                    required
+                                    autocomplete="off"
+                                >
+                                <span class="field-hint">
+                                    <i class="ri-information-line"></i>
+                                    Upload your CV to Google Drive or Dropbox, set sharing to "Anyone with the link can view", then paste the link here. PDF format preferred.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label class="file-upload-label-disabled">Or Upload Directly</label>
+                                <div class="file-upload-wrapper file-upload-disabled" aria-disabled="true">
+                                    <input type="file" id="resumeUpload" name="resume" accept=".pdf,.doc,.docx" disabled tabindex="-1">
+                                    <div class="file-upload-ui">
+                                        <i class="ri-upload-cloud-2-line"></i>
+                                        <span class="file-upload-text">Click to upload or drag &amp; drop</span>
+                                        <span class="file-upload-hint">Direct upload not available — use the link field above</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="coverLetter">Cover Letter <span class="form-label-optional">(optional)</span></label>
+                                <textarea id="coverLetter" name="cover_letter" rows="5" placeholder="You may paste your cover letter here if you prefer not to include it as a separate document. Optional — but a well-written note does make a difference."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ── Section 8: Declaration ─────────── -->
+                    <div class="form-section form-section-last">
+                        <div class="form-section-head">
+                            <span class="form-section-num">08</span>
+                            <div>
+                                <h2 class="form-section-title">Declaration</h2>
+                                <p class="form-section-desc">Please read and confirm before submitting.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="declaration-box">
+                                <p>By submitting this application, you confirm that:</p>
+                                <ul>
+                                    <li>All information provided in this form is accurate and complete to the best of your knowledge.</li>
+                                    <li>You consent to Sahrang Medtech retaining your application data for up to 12 months for recruitment purposes.</li>
+                                    <li>You understand that providing false information may disqualify your application at any stage.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="declaration_confirmed" value="confirmed" required>
+                                <span class="checkbox-mark"></span>
+                                <span>I confirm that all information in this application is accurate and I agree to the terms above. <span class="req">*</span></span>
+                            </label>
+                        </div>
+
+                        <!-- Formspree honeypot -->
+                        <input type="text" name="_gotcha" style="display:none">
+                        <!-- Custom redirect after submission -->
+                        <input type="hidden" name="_next" value="https://sahrangmedtech.systems/apply-success.html">
+                        <!-- Email subject -->
+                        <input type="hidden" name="_subject" id="emailSubject" value="New Job Application — Sahrang Medtech">
+
+                        <div class="form-submit-row">
+                            <button type="submit" class="btn-primary btn-submit" id="submitBtn">
+                                <!-- <i class="ri-send-plane-line"></i> -->
+                                Submit Application
+                            </button>
+                            <p class="submit-note">
+                                <i class="ri-time-line"></i>
+                                We review every application personally and respond within 5 business days.
+                            </p>
+                        </div>
+
+                        <!-- Success / error banners -->
+                        <div class="form-alert form-alert-success" id="successMsg" style="display:none">
+                            <i class="ri-checkbox-circle-line"></i>
+                            <div>
+                                <strong>Application submitted!</strong>
+                                <p>Thank you for applying. We will review your application and get back to you within 5 business days.</p>
+                            </div>
+                        </div>
+                        <div class="form-alert form-alert-error" id="errorMsg" style="display:none">
+                            <i class="ri-error-warning-line"></i>
+                            <div>
+                                <strong>Submission failed.</strong>
+                                <p>Something went wrong. Please try again or email us directly at <a href="mailto:careers@sahrangmedtech.systems">careers@sahrangmedtech.systems</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+
+                <!-- ── SIDEBAR ─────────────────────────────── -->
+                <aside class="apply-sidebar">
+
+                    <div class="sidebar-card" id="sidebarRoleCard">
+                        <div class="sidebar-card-head">
+                            <i class="ri-briefcase-line"></i>
+                            <span>You're Applying For</span>
+                        </div>
+                        <p class="sidebar-role-title" id="sidebarRoleTitle">—</p>
+                        <div class="sidebar-meta">
+                            <span><i class="ri-map-pin-2-line"></i> Bangalore, India</span>
+                            <span><i class="ri-building-line"></i> Sahrang Medtech</span>
+                        </div>
+                        <a href="/careers.html#open-roles" class="sidebar-back-link">
+                            <i class="ri-arrow-left-line"></i> View all open roles
+                        </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-head">
+                            <i class="ri-route-line"></i>
+                            <span>What Happens Next</span>
+                        </div>
+                        <ol class="sidebar-steps">
+                            <li>
+                                <span class="sidebar-step-num">01</span>
+                                <span><strong>Application Review</strong><br>We read every submission personally within 5 business days.</span>
+                            </li>
+                            <li>
+                                <span class="sidebar-step-num">02</span>
+                                <span><strong>Intro Call</strong><br>A short 30-minute call with the hiring manager.</span>
+                            </li>
+                            <li>
+                                <span class="sidebar-step-num">03</span>
+                                <span><strong>Assessment</strong><br>A focused, role-relevant technical task or live session.</span>
+                            </li>
+                            <li>
+                                <span class="sidebar-step-num">04</span>
+                                <span><strong>Final Round</strong><br>Conversation with senior leadership before an offer is extended.</span>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="sidebar-card sidebar-contact">
+                        <div class="sidebar-card-head">
+                            <i class="ri-question-answer-line"></i>
+                            <span>Questions?</span>
+                        </div>
+                        <p>If you have questions about the role or the process, reach out before applying.</p>
+                        <a href="mailto:careers@sahrangmedtech.systems" class="sidebar-email-link">
+                            <i class="ri-mail-line"></i>
+                            careers@sahrangmedtech.systems
+                        </a>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ── Footer ────────────────────────────────────────────── -->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-col">
+                    <div style="margin-bottom: 1.25rem;">
+                        <div style="display:flex; align-items:center; gap:8px; color:#002050; font-weight:700; font-size:0.9375rem;">
+                            <img src="Images/Blue_logo_transperent.png" alt="Sahrang Logo" style="height:28px;">
+                            Sahrang Medtech
+                        </div>
+                        <p style="font-size:0.8125rem; color:#555; margin-top:0.75rem; line-height:1.6;">
+                            AI-powered uroflowmetry — precision, connectivity, and affordable innovation.
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#technology">Technology</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/#applications">Applications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/careers.html">Careers</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+917488487969">+91 74884 87969</a></li>
+                        <li><a href="mailto:contact@sahrangmedtech.systems">contact@sahrangmedtech.systems</a></li>
+                        <li><a href="mailto:careers@sahrangmedtech.systems">careers@sahrangmedtech.systems</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-left">
+                    <button class="footer-lang-btn" aria-label="Language selector">
+                        <i class="ri-global-line"></i>
+                        English (India)
+                    </button>
+                    <span class="footer-privacy-toggle">
+                        <span class="ms-toggle" aria-label="Privacy toggle">
+                            <span class="ms-toggle-dot"></span>
+                        </span>
+                        Your Privacy Choices
+                    </span>
+                    <a href="#" class="footer-bottom-link">Consumer Health Privacy</a>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                    <a href="#" class="footer-bottom-link">Terms of Use</a>
+                    <a href="#" class="footer-bottom-link">Trademarks</a>
+                    <span class="footer-copyright">© 2026 Sahrang Medtech</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+    (function () {
+        'use strict';
+
+        /* ── Read ?role= from URL and populate fields ── */
+        var params   = new URLSearchParams(window.location.search);
+        var roleRaw  = params.get('role') || '';
+        var roleText = decodeURIComponent(roleRaw.replace(/\+/g, ' ')) || 'General Application';
+
+        var displayEls = [
+            document.getElementById('applyRoleDisplay'),
+            document.getElementById('positionDisplay'),
+            document.getElementById('sidebarRoleTitle')
+        ];
+        displayEls.forEach(function (el) { if (el) el.value = roleText, el.textContent = roleText; });
+
+        var hidden = document.getElementById('positionHidden');
+        if (hidden) hidden.value = roleText;
+
+        var subj = document.getElementById('emailSubject');
+        if (subj) subj.value = 'New Application — ' + roleText + ' — Sahrang Medtech';
+
+        /* Auto-select employment type */
+        var empSel = document.getElementById('employmentType');
+        if (empSel) {
+            if (/intern/i.test(roleText)) {
+                empSel.value = 'Internship';
+            } else if (roleText !== 'General Application') {
+                empSel.value = 'Full-Time';
+            }
+        }
+
+        /* ── AJAX form submission to Formspree ── */
+        var form      = document.getElementById('applicationForm');
+        var submitBtn = document.getElementById('submitBtn');
+        var successEl = document.getElementById('successMsg');
+        var errorEl   = document.getElementById('errorMsg');
+
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                /* Basic client-side validation */
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="ri-loader-4-line spin"></i> Submitting…';
+
+                var data = new FormData(form);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function (res) {
+                    if (res.ok) {
+                        successEl.style.display = 'flex';
+                        errorEl.style.display   = 'none';
+                        form.reset();
+                        /* Re-populate position fields after reset so a retry still sends the correct role */
+                        var posDisp = document.getElementById('positionDisplay');
+                        var posHidn = document.getElementById('positionHidden');
+                        var posSubj = document.getElementById('emailSubject');
+                        if (posDisp) posDisp.value = roleText;
+                        if (posHidn) posHidn.value = roleText;
+                        if (posSubj) posSubj.value = 'New Application — ' + roleText + ' — Sahrang Medtech';
+                        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        throw new Error('Server error');
+                    }
+                })
+                .catch(function () {
+                    errorEl.style.display   = 'flex';
+                    successEl.style.display = 'none';
+                    errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Submit Application';
+                });
+            });
+        }
+
+    }());
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,528 @@
+/* ============================================================
+   Sahrang Medtech — Global Stylesheet  (style.css)
+   Shared across every page of the site.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
+
+/* ── CSS Custom Properties ─────────────────────────────────── */
+:root {
+    /* Brand palette */
+    --primary-blue:    #1160B7;
+    --secondary-blue:  #0d4f9e;
+    --pressed-blue:    #002050;
+    --light-blue:      #B1D6F0;
+    --dark-blue:       #002050;
+
+    /* Semantic aliases */
+    --accent-teal:     #1160B7;
+    --medical-green:   #1160B7;
+    --accent-cyan:     #1160B7;
+    --warning-orange:  #CA5010;
+    --error-red:       #A4262C;
+
+    /* Text */
+    --text-primary:    #002050;
+    --text-secondary:  #3a5070;
+    --text-light:      #ffffff;
+
+    /* Surfaces */
+    --surface-white:   #ffffff;
+    --surface-light:   #DFE2E8;
+    --surface-medium:  #DFE2E8;
+    --surface-dark:    #002050;
+
+    /* Borders & shadows */
+    --border-color:    #DFE2E8;
+    --border-dark:     #b0b8c8;
+    --shadow-light:    0 0 2px rgba(0,32,80,.10), 0 1px 2px rgba(0,32,80,.12);
+    --shadow-medium:   0 0 2px rgba(0,32,80,.10), 0 4px 8px rgba(0,32,80,.12);
+    --shadow-heavy:    0 0 8px rgba(0,32,80,.10), 0 14px 28px rgba(0,32,80,.14);
+
+    /* Radii (set to 2px for Microsoft-sharp look) */
+    --border-radius-sm: 2px;
+    --border-radius-md: 2px;
+    --border-radius-lg: 2px;
+    --border-radius-xl: 2px;
+
+    /* Layout */
+    --navbar-height: 48px;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #1160B7, #002050);
+}
+
+
+/* ── Reset ──────────────────────────────────────────────────── */
+*  { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont,
+                 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    overflow-x: hidden;
+    background: var(--surface-white);
+    padding-top: var(--navbar-height);
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+
+
+/* ── Layout helper ──────────────────────────────────────────── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+
+/* ── NAVBAR ─────────────────────────────────────────────────── */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #DFE2E8;
+    z-index: 1001;
+    height: var(--navbar-height);
+    transition: transform 0.3s ease, box-shadow 0.2s;
+}
+
+.navbar.nav-hidden  { transform: translateY(-100%); }
+.navbar.nav-visible { transform: translateY(0); }
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 0;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: -0.01em;
+    margin-right: 2rem;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+/* Desktop links */
+.nav-links { display: flex; list-style: none; gap: 0; flex: 1; }
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    padding: 0 0.875rem;
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: color 0.1s, background 0.1s;
+    white-space: nowrap;
+}
+
+.nav-links a::after { display: none; }
+.nav-links a:hover  { color: var(--primary-blue); background: none; }
+
+/* Right-side controls */
+.nav-right { display: flex; align-items: center; gap: 0.25rem; margin-left: auto; }
+
+.nav-icon-btn {
+    background: none;
+    border: none;
+    color: var(--dark-blue);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    padding: 0 0.75rem;
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.1s;
+    font-family: inherit;
+}
+
+.nav-icon-btn:hover { color: var(--primary-blue); }
+.nav-icon-btn i     { font-size: 1rem; }
+
+.nav-divider { width: 1px; height: 16px; background: #DFE2E8; margin: 0 0.25rem; }
+
+/* CTA button in nav */
+.nav-cta {
+    background: var(--primary-blue);
+    color: white !important;
+    padding: 0.375rem 1rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background 0.1s;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    cursor: pointer;
+    font-family: inherit;
+    height: 32px;
+}
+
+.nav-cta:hover { background: var(--pressed-blue) !important; color: white !important; }
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    font-size: 1.125rem;
+    background: none;
+    border: none;
+    color: var(--dark-blue);
+    cursor: pointer;
+    z-index: 1002;
+    padding: 0.5rem;
+    margin-left: auto;
+}
+
+/* Mobile dropdown */
+.nav-links-mobile {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 16px rgba(0,32,80,0.12);
+    border-top: 1px solid var(--border-color);
+    list-style: none;
+    z-index: 1003;
+}
+
+.nav-links-mobile.active { display: flex; }
+.nav-links-mobile li     { margin: 0; }
+
+.nav-links-mobile a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    color: var(--dark-blue);
+    transition: background 0.1s, color 0.1s;
+}
+
+.nav-links-mobile a:hover { background: #EBF4FB; color: var(--primary-blue); }
+
+.nav-links-mobile .nav-cta {
+    display: inline-flex;
+    margin: 0.75rem 1.5rem;
+    height: 36px;
+}
+
+
+/* ── Shared Buttons ─────────────────────────────────────────── */
+.btn-primary {
+    background: var(--primary-blue);
+    color: white;
+    padding: 0.6875rem 1.5rem;
+    border: 1px solid var(--primary-blue);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.1s, border-color 0.1s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    font-family: inherit;
+}
+
+.btn-primary:hover,
+.btn-primary:active { background: var(--pressed-blue); border-color: var(--pressed-blue); }
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-blue);
+    padding: 0.6875rem 0.25rem;
+    border: none;
+    border-radius: 0;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.1s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    font-family: inherit;
+}
+
+.btn-secondary:hover { background: transparent; color: var(--pressed-blue); }
+.btn-secondary:hover .btn-secondary-text { text-decoration: underline; }
+
+.btn-secondary-arrow {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-secondary:hover .btn-secondary-arrow { transform: translateX(5px); }
+
+
+/* ── Section header (shared across pages) ───────────────────── */
+.section-header { text-align: center; margin-bottom: 3.5rem; }
+
+.section-badge {
+    display: inline-block;
+    background: var(--dark-blue);
+    color: #fff;
+    padding: 0.45rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+}
+
+.section-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 0.875rem;
+    color: var(--dark-blue);
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+
+/* ── FOOTER — Microsoft style ───────────────────────────────── */
+.site-footer { background: #ffffff; border-top: 1px solid #DFE2E8; }
+
+.footer-main { background: #f2f2f2; padding: 2.5rem 0 1.5rem; }
+
+.footer-main .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+}
+
+.footer-col h4 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #002050;
+    margin-bottom: 0.875rem;
+    letter-spacing: 0;
+}
+
+.footer-col ul              { list-style: none; }
+.footer-col ul li           { margin-bottom: 0.5rem; }
+.footer-col ul li a         { font-size: 0.8125rem; color: #444; text-decoration: none; transition: color 0.1s; line-height: 1.5; }
+.footer-col ul li a:hover   { color: var(--primary-blue); text-decoration: underline; }
+
+/* Bottom bar */
+.footer-bottom              { background: #f2f2f2; border-top: 1px solid #DFE2E8; padding: 0.875rem 0; }
+.footer-bottom .container   { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+.footer-bottom-left         { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.footer-bottom-right        { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+
+.footer-lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    color: #444;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+    transition: color 0.1s;
+}
+
+.footer-lang-btn:hover { color: var(--primary-blue); }
+.footer-lang-btn i     { font-size: 1rem; color: #555; }
+
+.footer-privacy-toggle { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8125rem; color: #444; cursor: pointer; }
+
+/* Microsoft toggle switch */
+.ms-toggle {
+    width: 28px;
+    height: 16px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    padding: 1px;
+    position: relative;
+    background: #fff;
+    flex-shrink: 0;
+}
+
+.ms-toggle-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    position: absolute;
+    left: 2px;
+    transition: left 0.2s;
+}
+
+.footer-bottom-link         { font-size: 0.8125rem; color: #444; text-decoration: none; transition: color 0.1s; }
+.footer-bottom-link:hover   { color: var(--primary-blue); text-decoration: underline; }
+.footer-copyright           { font-size: 0.8125rem; color: #444; white-space: nowrap; }
+
+
+/* ── Back to Top — Microsoft style ─────────────────────────── */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #ffffff;
+    color: var(--dark-blue);
+    border: 1px solid #DFE2E8;
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, background 0.1s, color 0.1s;
+    box-shadow: 0 2px 8px rgba(0,32,80,0.10);
+    text-decoration: none;
+}
+
+.back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.back-to-top:hover   { background: #EBF4FB; color: var(--primary-blue); border-color: var(--light-blue); }
+
+.back-to-top .btt-arrow { display: flex; align-items: center; justify-content: center; width: 14px; height: 14px; position: relative; }
+
+.back-to-top .btt-arrow::before {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-top: 1.5px solid currentColor;
+    border-left: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(2px);
+}
+
+
+/* ── Media Carousel Controls — Microsoft style ──────────────── */
+.ms-controls   { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 0; }
+.ms-ctrl-btn   { background: none; border: none; cursor: pointer; color: #002050; display: flex; align-items: center; justify-content: center; padding: 0.25rem; transition: color 0.1s; }
+.ms-ctrl-btn:hover { color: var(--primary-blue); }
+
+.ms-icon-pause { width: 22px; height: 22px; border: 1.5px solid currentColor; border-radius: 50%; display: flex; align-items: center; justify-content: center; gap: 3px; }
+.ms-icon-pause span { width: 2.5px; height: 9px; background: currentColor; border-radius: 1px; display: block; }
+
+.ms-icon-chevron { font-size: 0.875rem; color: currentColor; }
+
+.ms-dot       { width: 8px; height: 8px; border-radius: 50%; background: #b0b8c8; border: none; cursor: pointer; padding: 0; transition: background 0.15s; }
+.ms-dot.active { background: var(--dark-blue); }
+.ms-dot:hover  { background: var(--primary-blue); }
+
+
+/* ── Fluent icon helpers ────────────────────────────────────── */
+.fluent-icon              { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; flex-shrink: 0; }
+.fluent-icon-white        { filter: brightness(0) invert(1); }
+.fluent-icon-blue         { filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%); }
+.fluent-icon-dark         { filter: invert(8%) sepia(57%) saturate(1800%) hue-rotate(204deg) brightness(70%) contrast(110%); }
+
+.feature-icon .fluent-icon,
+.app-icon .fluent-icon,
+.video-info-item .fluent-icon-box .fluent-icon {
+    filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%);
+    width: 1.375rem; height: 1.375rem;
+}
+
+.contact-item-icon .fluent-icon  { filter: brightness(0) invert(1); width: 1.25rem; height: 1.25rem; }
+.diagram-element .fluent-icon    { filter: brightness(0) invert(1); width: 1.5rem; height: 1.5rem; }
+
+.btn-primary .fluent-icon,
+.nav-cta .fluent-icon,
+.form-submit .fluent-icon        { filter: brightness(0) invert(1); width: 1rem; height: 1rem; }
+
+.btn-secondary .fluent-icon      { filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%); width: 1rem; height: 1rem; }
+
+.section-badge .fluent-icon,
+.hero-badge .fluent-icon         { filter: brightness(0) invert(1); width: 0.875rem; height: 0.875rem; }
+
+.pricing-savings .fluent-icon    { filter: brightness(0) invert(1); width: 0.875rem; height: 0.875rem; }
+
+.pricing-feature .fluent-icon {
+    filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%);
+    width: 1rem; height: 1rem;
+    flex-shrink: 0;
+}
+
+.nav-icon-btn .fluent-icon       { filter: invert(8%) sepia(57%) saturate(1800%) hue-rotate(204deg) brightness(70%) contrast(110%); width: 1rem; height: 1rem; }
+.nav-icon-btn:hover .fluent-icon { filter: invert(28%) sepia(82%) saturate(847%) hue-rotate(196deg) brightness(92%) contrast(97%); }
+.hamburger .fluent-icon          { filter: invert(8%) sepia(57%) saturate(1800%) hue-rotate(204deg) brightness(70%) contrast(110%); width: 1.25rem; height: 1.25rem; }
+.footer-lang-btn .fluent-icon    { filter: invert(30%) sepia(0%) saturate(0%) brightness(60%) contrast(90%); width: 1rem; height: 1rem; }
+
+
+/* ── Keyframe animations ────────────────────────────────────── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+
+/* ── Utility: Scroll-reveal ─────────────────────────────────── */
+/* JS adds .animated when element enters viewport */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Spinner from RemixIcon */
+.ri-spin { display: inline-block; animation: spin 1s linear infinite; }
+
+
+/* ── Responsive: Navbar breakpoint ─────────────────────────── */
+@media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-right { display: none; }
+    .hamburger { display: flex; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 1rem; }
+}
