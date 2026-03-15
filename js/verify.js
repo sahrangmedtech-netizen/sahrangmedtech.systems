@@ -12,7 +12,7 @@
     var verifyDetails = document.getElementById('verifyDetails');
     var verifyCertificate = document.getElementById('verifyCertificate');
     var verifyCertificateFrame = document.getElementById('verifyCertificateFrame');
-    var verifyCertificateDownload = document.getElementById('verifyCertificateDownload');
+    var verifyCertificateDownload = null;
 
     var detailName = document.getElementById('detailName');
     var detailRole = document.getElementById('detailRole');
@@ -23,36 +23,6 @@
     var STATUS_CLASSNAMES = ['status-valid', 'status-invalid', 'status-revoked', 'status-error'];
     var records = [];
     var completionRecords = [];
-    var downloadFrame = null;
-
-    function getDownloadFrame() {
-        if (downloadFrame) return downloadFrame;
-
-        downloadFrame = document.createElement('iframe');
-        downloadFrame.hidden = true;
-        downloadFrame.setAttribute('aria-hidden', 'true');
-        downloadFrame.tabIndex = -1;
-        document.body.appendChild(downloadFrame);
-        return downloadFrame;
-    }
-
-    function triggerDirectDownload(url) {
-        if (!url || url === '#') return;
-
-        var frame = getDownloadFrame();
-        var requestUrl = url;
-
-        try {
-            var resolvedUrl = new URL(url, window.location.href);
-            resolvedUrl.searchParams.set('_dl', String(Date.now()));
-            requestUrl = resolvedUrl.toString();
-        } catch (error) {
-            requestUrl = url;
-        }
-
-        frame.removeAttribute('src');
-        frame.setAttribute('src', requestUrl);
-    }
 
     function normalizeVerificationId(value) {
         return String(value || '')
@@ -89,7 +59,7 @@
     }
 
     function showCertificate(record) {
-        if (!verifyCertificate || !verifyCertificateFrame || !verifyCertificateDownload) return;
+        if (!verifyCertificate || !verifyCertificateFrame) return;
 
         if (!record || !record.previewUrl) {
             hideCertificate();
@@ -98,26 +68,13 @@
 
         verifyCertificate.hidden = false;
         verifyCertificateFrame.setAttribute('src', record.previewUrl);
-
-        if (record.downloadUrl) {
-            verifyCertificateDownload.hidden = false;
-            verifyCertificateDownload.setAttribute('href', record.downloadUrl);
-            verifyCertificateDownload.setAttribute('aria-disabled', 'false');
-        } else {
-            verifyCertificateDownload.hidden = true;
-            verifyCertificateDownload.setAttribute('href', '#');
-            verifyCertificateDownload.setAttribute('aria-disabled', 'true');
-        }
     }
 
     function hideCertificate() {
-        if (!verifyCertificate || !verifyCertificateFrame || !verifyCertificateDownload) return;
+        if (!verifyCertificate || !verifyCertificateFrame) return;
 
         verifyCertificate.hidden = true;
         verifyCertificateFrame.removeAttribute('src');
-        verifyCertificateDownload.hidden = true;
-        verifyCertificateDownload.setAttribute('href', '#');
-        verifyCertificateDownload.setAttribute('aria-disabled', 'true');
     }
 
     function setResultVisible() {
@@ -232,17 +189,6 @@
             });
         }
 
-        if (verifyCertificateDownload) {
-            verifyCertificateDownload.addEventListener('click', function (event) {
-                if (verifyCertificateDownload.getAttribute('aria-disabled') === 'true') {
-                    event.preventDefault();
-                    return;
-                }
-
-                event.preventDefault();
-                triggerDirectDownload(verifyCertificateDownload.getAttribute('href'));
-            });
-        }
     }
 
     function loadVerificationRecords() {
