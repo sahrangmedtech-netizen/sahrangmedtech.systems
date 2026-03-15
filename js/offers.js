@@ -21,6 +21,7 @@
     var offerModalTitle = document.getElementById('offerModalTitle');
     var offerModalDownload = document.getElementById('offerModalDownload');
     var offerPreviewFrame = document.getElementById('offerPreviewFrame');
+    var downloadFrame = null;
 
     var offers = [];
 
@@ -48,6 +49,35 @@
     function updateCount(total) {
         if (!resultCount) return;
         resultCount.textContent = total + ' offer letter' + (total === 1 ? '' : 's');
+    }
+
+    function getDownloadFrame() {
+        if (downloadFrame) return downloadFrame;
+
+        downloadFrame = document.createElement('iframe');
+        downloadFrame.hidden = true;
+        downloadFrame.setAttribute('aria-hidden', 'true');
+        downloadFrame.tabIndex = -1;
+        document.body.appendChild(downloadFrame);
+        return downloadFrame;
+    }
+
+    function triggerDirectDownload(url) {
+        if (!url || url === '#') return;
+
+        var frame = getDownloadFrame();
+        var requestUrl = url;
+
+        try {
+            var resolvedUrl = new URL(url, window.location.href);
+            resolvedUrl.searchParams.set('_dl', String(Date.now()));
+            requestUrl = resolvedUrl.toString();
+        } catch (error) {
+            requestUrl = url;
+        }
+
+        frame.removeAttribute('src');
+        frame.setAttribute('src', requestUrl);
     }
 
     function buildMonthOptions() {
@@ -114,7 +144,7 @@
                     '<button type="button" class="offer-view-btn" data-preview-url="' + escapeHtml(previewUrl) + '" data-download-url="' + escapeHtml(downloadUrl) + '" data-offer-name="' + escapeHtml(offer.name) + '" aria-disabled="' + String(!hasPreview) + '">' +
                         '<i class="ri-eye-line"></i>View' +
                     '</button>' +
-                    '<a class="btn-primary offer-download-btn" href="' + escapeHtml(downloadUrl || '#') + '" target="_blank" rel="noopener noreferrer" aria-disabled="' + String(!hasDownload) + '">' +
+                    '<a class="btn-primary offer-download-btn" href="' + escapeHtml(downloadUrl || '#') + '" rel="noopener noreferrer" aria-disabled="' + String(!hasDownload) + '">' +
                         '<i class="ri-download-2-line"></i>Download' +
                     '</a>' +
                 '</div>' +
@@ -219,18 +249,42 @@
         if (offersGrid) {
             offersGrid.addEventListener('click', function (event) {
                 var viewBtn = event.target.closest('.offer-view-btn');
-                if (!viewBtn) return;
+                if (viewBtn) {
+                    if (viewBtn.getAttribute('aria-disabled') === 'true') {
+                        event.preventDefault();
+                        return;
+                    }
 
-                if (viewBtn.getAttribute('aria-disabled') === 'true') {
+                    openModal(
+                        viewBtn.getAttribute('data-preview-url'),
+                        viewBtn.getAttribute('data-download-url'),
+                        viewBtn.getAttribute('data-offer-name')
+                    );
+                    return;
+                }
+
+                var downloadLink = event.target.closest('.offer-download-btn');
+                if (!downloadLink) return;
+
+                if (downloadLink.getAttribute('aria-disabled') === 'true') {
                     event.preventDefault();
                     return;
                 }
 
-                openModal(
-                    viewBtn.getAttribute('data-preview-url'),
-                    viewBtn.getAttribute('data-download-url'),
-                    viewBtn.getAttribute('data-offer-name')
-                );
+                event.preventDefault();
+                triggerDirectDownload(downloadLink.getAttribute('href'));
+            });
+        }
+
+        if (offerModalDownload) {
+            offerModalDownload.addEventListener('click', function (event) {
+                if (offerModalDownload.getAttribute('aria-disabled') === 'true') {
+                    event.preventDefault();
+                    return;
+                }
+
+                event.preventDefault();
+                triggerDirectDownload(offerModalDownload.getAttribute('href'));
             });
         }
 
