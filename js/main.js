@@ -99,15 +99,15 @@
     const THEME_KEY = 'sahrang-theme-mode';
 
     function updateLogos(isDark) {
-        document.querySelectorAll('img[src*="logo_transperent.png"]').forEach(function (img) {
+        document.querySelectorAll('img[src*="logo-blue-transparent.png"]').forEach(function (img) {
             if (!img.dataset.lightLogo) {
                 img.dataset.lightLogo = img.getAttribute('src') || '';
             }
 
             if (!img.dataset.darkLogo) {
                 img.dataset.darkLogo = img.dataset.lightLogo.replace(
-                    /Blue_logo_transperent\.png/i,
-                    'black_n_white_logo_transperent.png'
+                    /logo-blue-transparent\.png/i,
+                    'logo-monochrome-transparent.png'
                 );
             }
 

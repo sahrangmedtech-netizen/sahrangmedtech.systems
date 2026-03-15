@@ -591,6 +591,22 @@ body.dark-mode .file-upload-wrapper.file-upload-disabled .file-upload-text {
     color: #8ea3be;
 }
 
+body.dark-mode .apply-back-link {
+    color: #c6d8ee;
+}
+
+body.dark-mode .apply-back-link:hover {
+    color: #ffffff;
+}
+
+body.dark-mode .apply-hero-sub {
+    color: rgba(242,246,252,0.82);
+}
+
+body.dark-mode .apply-hero-sub strong {
+    color: #ffffff;
+}
+
 
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 1024px) {
