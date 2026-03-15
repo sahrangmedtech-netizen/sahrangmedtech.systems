@@ -68,6 +68,24 @@
                 hamburgerIcon.className = isOpen ? 'ri-close-line' : 'ri-menu-line';
             }
         });
+
+        // Close menu when user taps/clicks anywhere outside the dropdown.
+        document.addEventListener('click', function (event) {
+            const target = event.target;
+            const clickedInsideMenu = mobileMenu.contains(target);
+            const clickedHamburger = hamburger.contains(target);
+
+            if (mobileMenu.classList.contains('active') && !clickedInsideMenu && !clickedHamburger) {
+                closeMobileMenu();
+            }
+        });
+
+        // Accessibility: allow quick close from keyboard too.
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
     }
 
     /** Helper: close the mobile menu and reset the icon. */

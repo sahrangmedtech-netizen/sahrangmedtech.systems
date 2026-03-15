@@ -642,7 +642,8 @@ body.dark-mode .ms-dot.active {
 /* Keep only the requested non-rounded hero strips unfilled in dark mode. */
 body.dark-mode .careers-hero .hero-badge,
 body.dark-mode .downloads-hero .hero-badge,
-body.dark-mode .offers-hero .hero-badge {
+body.dark-mode .offers-hero .hero-badge,
+body.dark-mode .verify-hero .hero-badge {
     background: transparent;
     color: var(--text-primary);
     border: none;
