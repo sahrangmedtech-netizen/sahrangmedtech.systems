@@ -10,6 +10,9 @@
     var verifyHeadline = document.getElementById('verifyHeadline');
     var verifyMessage = document.getElementById('verifyMessage');
     var verifyDetails = document.getElementById('verifyDetails');
+    var verifyCertificate = document.getElementById('verifyCertificate');
+    var verifyCertificateFrame = document.getElementById('verifyCertificateFrame');
+    var verifyCertificateDownload = document.getElementById('verifyCertificateDownload');
 
     var detailName = document.getElementById('detailName');
     var detailRole = document.getElementById('detailRole');
@@ -19,6 +22,7 @@
 
     var STATUS_CLASSNAMES = ['status-valid', 'status-invalid', 'status-revoked', 'status-error'];
     var records = [];
+    var completionRecords = [];
 
     function normalizeVerificationId(value) {
         return String(value || '')
@@ -54,6 +58,29 @@
         if (verifyDetails) verifyDetails.hidden = true;
     }
 
+    function showCertificate(record) {
+        if (!verifyCertificate || !verifyCertificateFrame || !verifyCertificateDownload) return;
+
+        if (!record || !record.previewUrl) {
+            hideCertificate();
+            return;
+        }
+
+        verifyCertificate.hidden = false;
+        verifyCertificateFrame.setAttribute('src', record.previewUrl);
+        verifyCertificateDownload.setAttribute('href', record.downloadUrl || '#');
+        verifyCertificateDownload.setAttribute('aria-disabled', record.downloadUrl ? 'false' : 'true');
+    }
+
+    function hideCertificate() {
+        if (!verifyCertificate || !verifyCertificateFrame || !verifyCertificateDownload) return;
+
+        verifyCertificate.hidden = true;
+        verifyCertificateFrame.removeAttribute('src');
+        verifyCertificateDownload.setAttribute('href', '#');
+        verifyCertificateDownload.setAttribute('aria-disabled', 'true');
+    }
+
     function setResultVisible() {
         if (verifyResult) verifyResult.hidden = false;
     }
@@ -61,33 +88,37 @@
     function showValid(record) {
         setResultVisible();
         setStatusAppearance('status-valid', 'Valid', 'ri-checkbox-circle-line');
-        verifyHeadline.textContent = 'Genuine Completion Letter';
-        verifyMessage.textContent = 'This completion letter is verified as issued by Sahrang Medtech.';
+        verifyHeadline.textContent = 'Record Verified';
+        verifyMessage.textContent = 'This reference number matches an official Sahrang Medtech record.';
         fillDetails(record);
+        showCertificate(getMatchingCompletionRecord(record.verificationId));
     }
 
     function showRevoked(record) {
         setResultVisible();
         setStatusAppearance('status-revoked', 'Revoked', 'ri-alert-line');
-        verifyHeadline.textContent = 'Letter Record Found (Revoked)';
-        verifyMessage.textContent = 'This verification ID exists but is currently not valid. Contact careers@sahrangmedtech.systems for clarification.';
+        verifyHeadline.textContent = 'Record Revoked';
+        verifyMessage.textContent = 'This reference number exists but is not currently valid.';
         fillDetails(record || {});
+        hideCertificate();
     }
 
     function showInvalid() {
         setResultVisible();
         setStatusAppearance('status-invalid', 'Invalid', 'ri-close-circle-line');
-        verifyHeadline.textContent = 'Verification Failed';
-        verifyMessage.textContent = 'No valid completion letter record found for this verification ID.';
+        verifyHeadline.textContent = 'Record Not Found';
+        verifyMessage.textContent = 'The submitted reference number does not match our records.';
         hideDetails();
+        hideCertificate();
     }
 
     function showError() {
         setResultVisible();
         setStatusAppearance('status-error', 'Error', 'ri-error-warning-line');
-        verifyHeadline.textContent = 'Verification Data Unavailable';
-        verifyMessage.textContent = 'Please retry in a few minutes. If the issue persists, contact careers@sahrangmedtech.systems.';
+        verifyHeadline.textContent = 'Verification Unavailable';
+        verifyMessage.textContent = 'Please try again shortly.';
         hideDetails();
+        hideCertificate();
     }
 
     function updateUrlWithId(verificationId) {
@@ -108,6 +139,13 @@
     function getMatchingRecord(verificationId) {
         return records.find(function (record) {
             return normalizeVerificationId(record.verificationId) === verificationId;
+        }) || null;
+    }
+
+    function getMatchingCompletionRecord(referenceNo) {
+        var normalizedReference = normalizeVerificationId(referenceNo);
+        return completionRecords.find(function (record) {
+            return normalizeVerificationId(record.referenceNo) === normalizedReference;
         }) || null;
     }
 
@@ -169,10 +207,23 @@
             });
     }
 
+    function loadCompletionRecords() {
+        return fetch('data/completions.json', { cache: 'no-store' })
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Unable to load completion records.');
+                }
+                return response.json();
+            })
+            .then(function (payload) {
+                completionRecords = Array.isArray(payload) ? payload : [];
+            });
+    }
+
     function init() {
         attachEvents();
 
-        loadVerificationRecords()
+        Promise.all([loadVerificationRecords(), loadCompletionRecords()])
             .then(function () {
                 var queryId = parseQueryId();
                 if (queryId) {
@@ -181,6 +232,7 @@
             })
             .catch(function () {
                 records = [];
+                completionRecords = [];
                 showError();
             });
     }

@@ -33,6 +33,40 @@
     padding: 1.25rem;
 }
 
+.verify-panel-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.verify-panel-title {
+    color: var(--dark-blue);
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+.verify-panel-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.verify-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    padding: 0.38rem 0.7rem;
+    background: #ebf4fb;
+    color: var(--dark-blue);
+    border: 1px solid #b9d5ee;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
 .verify-form-wrap {
     display: grid;
     grid-template-columns: 1fr;
@@ -173,10 +207,54 @@
     line-height: 1.5;
 }
 
+.verify-certificate {
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    background: #fff;
+}
+
+.verify-certificate-head {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.verify-certificate-title {
+    color: var(--dark-blue);
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
+}
+
+.verify-certificate-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.verify-certificate-frame-wrap {
+    min-height: 360px;
+    background: #f4f7fb;
+}
+
+#verifyCertificateFrame {
+    width: 100%;
+    min-height: 68vh;
+    border: 0;
+    background: #f4f7fb;
+}
+
 @media (min-width: 780px) {
     .verify-panel,
     .verify-result {
         padding: 1.5rem;
+    }
+
+    .verify-panel-head {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
     }
 
     .verify-form-wrap {
@@ -209,5 +287,11 @@
 
     .verify-detail-item:nth-last-child(-n+2) {
         border-bottom: 0;
+    }
+
+    .verify-certificate-head {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 }

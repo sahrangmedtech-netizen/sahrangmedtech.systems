@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Completion Letter Verification - Sahrang Medtech</title>
-    <meta name="description" content="Verify internship completion letters issued by Sahrang Medtech.">
+    <title>Credential Verification - Sahrang Medtech</title>
+    <meta name="description" content="Verify official internship credentials issued by Sahrang Medtech.">
     <link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -57,11 +57,11 @@
         <div class="container">
             <div class="hero-badge animate-on-scroll">
                 <i class="ri-shield-check-line"></i>
-                Verification Portal
+                Official Verification
             </div>
-            <h1 class="verify-title animate-on-scroll">Completion Letter Verification</h1>
+            <h1 class="verify-title animate-on-scroll">Credential Verification</h1>
             <p class="verify-subtitle animate-on-scroll">
-                Scan the QR code on your completion letter or enter the reference number below to confirm document authenticity.
+                Enter a reference number or scan the QR code to verify an official record.
             </p>
         </div>
     </section>
@@ -69,6 +69,17 @@
     <section class="verify-section">
         <div class="container">
             <div class="verify-panel animate-on-scroll">
+                <div class="verify-panel-head">
+                    <div>
+                        <h2 class="verify-panel-title">Verify Record</h2>
+                        <p class="verify-panel-subtitle">Check whether the submitted reference number matches an official record.</p>
+                    </div>
+                    <div class="verify-trust-badge">
+                        <i class="ri-building-line"></i>
+                        Official Record
+                    </div>
+                </div>
+
                 <div class="verify-form-wrap">
                     <label for="verifyIdInput" class="verify-label">Reference Number</label>
                     <div class="verify-input-wrap">
@@ -77,12 +88,12 @@
                     </div>
                     <button id="verifyBtn" class="btn-primary verify-btn" type="button">
                         <i class="ri-search-line"></i>
-                        Verify Letter
+                        Verify
                     </button>
                 </div>
 
                 <p class="verify-note">
-                    Verification is available only on the official Sahrang Medtech domain. If this page is opened on any other domain, treat it as suspicious.
+                    Verify only on the official Sahrang Medtech domain.
                 </p>
             </div>
 
@@ -116,6 +127,23 @@
                         <dd id="detailVerificationId">—</dd>
                     </div>
                 </dl>
+
+                <section id="verifyCertificate" class="verify-certificate" hidden>
+                    <div class="verify-certificate-head">
+                        <div>
+                            <h3 class="verify-certificate-title">Record Preview</h3>
+                            <p class="verify-certificate-subtitle">Preview of the verified document.</p>
+                        </div>
+                        <a id="verifyCertificateDownload" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                            <i class="ri-download-2-line"></i>
+                            Download
+                        </a>
+                    </div>
+
+                    <div class="verify-certificate-frame-wrap">
+                        <iframe id="verifyCertificateFrame" title="Verified Completion Certificate Preview" loading="lazy"></iframe>
+                    </div>
+                </section>
             </section>
         </div>
     </section>
