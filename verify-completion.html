@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completion Letter Verification - Sahrang Medtech</title>
+    <meta name="description" content="Verify internship completion letters issued by Sahrang Medtech.">
+    <link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/verify.css">
+</head>
+
+<body>
+
+    <nav class="navbar nav-visible">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="Images/Blue_logo_transperent.png" alt="Sahrang Logo" style="height: 36px;">
+                Sahrang Medtech
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#technology">Technology</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/#applications">Applications</a></li>
+                <li><a href="/careers.html" style="color: var(--primary-blue); font-weight: 600;">Careers</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="/#contact" class="nav-icon-btn">
+                    <i class="ri-phone-line"></i>
+                    Contact
+                </a>
+                <div class="nav-divider"></div>
+                <a href="/#contact" class="nav-cta">Get Quote</a>
+            </div>
+
+            <button class="hamburger" aria-label="Open menu">
+                <i class="ri-menu-line" id="hamburgerIcon"></i>
+            </button>
+
+            <ul class="nav-links-mobile">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#technology">Technology</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/#applications">Applications</a></li>
+                <li><a href="/careers.html">Careers</a></li>
+                <li><a href="/#contact" class="nav-cta">Get Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="verify-hero">
+        <div class="container">
+            <div class="hero-badge animate-on-scroll">
+                <i class="ri-shield-check-line"></i>
+                Verification Portal
+            </div>
+            <h1 class="verify-title animate-on-scroll">Completion Letter Verification</h1>
+            <p class="verify-subtitle animate-on-scroll">
+                Scan the QR code on your completion letter or enter the reference number below to confirm document authenticity.
+            </p>
+        </div>
+    </section>
+
+    <section class="verify-section">
+        <div class="container">
+            <div class="verify-panel animate-on-scroll">
+                <div class="verify-form-wrap">
+                    <label for="verifyIdInput" class="verify-label">Reference Number</label>
+                    <div class="verify-input-wrap">
+                        <i class="ri-qr-code-line" aria-hidden="true"></i>
+                        <input id="verifyIdInput" type="text" placeholder="Example: SMTPL/HR/INT/2025/079" autocomplete="off">
+                    </div>
+                    <button id="verifyBtn" class="btn-primary verify-btn" type="button">
+                        <i class="ri-search-line"></i>
+                        Verify Letter
+                    </button>
+                </div>
+
+                <p class="verify-note">
+                    Verification is available only on the official Sahrang Medtech domain. If this page is opened on any other domain, treat it as suspicious.
+                </p>
+            </div>
+
+            <section id="verifyResult" class="verify-result" aria-live="polite" hidden>
+                <div class="verify-status" id="verifyStatusPill">
+                    <i id="verifyStatusIcon" class="ri-information-line"></i>
+                    <span id="verifyStatusText">Status</span>
+                </div>
+                <h2 id="verifyHeadline">Verification</h2>
+                <p id="verifyMessage">Run verification to see document status.</p>
+
+                <dl id="verifyDetails" class="verify-details" hidden>
+                    <div class="verify-detail-item">
+                        <dt>Full Name</dt>
+                        <dd id="detailName">—</dd>
+                    </div>
+                    <div class="verify-detail-item">
+                        <dt>Role</dt>
+                        <dd id="detailRole">—</dd>
+                    </div>
+                    <div class="verify-detail-item">
+                        <dt>Duration</dt>
+                        <dd id="detailDuration">—</dd>
+                    </div>
+                    <div class="verify-detail-item">
+                        <dt>Issue Date</dt>
+                        <dd id="detailIssueDate">—</dd>
+                    </div>
+                    <div class="verify-detail-item">
+                        <dt>Verification ID</dt>
+                        <dd id="detailVerificationId">—</dd>
+                    </div>
+                </dl>
+            </section>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-col">
+                    <div style="margin-bottom: 1.25rem;">
+                        <div style="display:flex; align-items:center; gap:8px; color:#002050; font-weight:700; font-size:0.9375rem;">
+                            <img src="Images/Blue_logo_transperent.png" alt="Sahrang Logo" style="height:28px;">
+                            Sahrang Medtech
+                        </div>
+                        <p style="font-size:0.8125rem; color:#555; margin-top:0.75rem; line-height:1.6;">
+                            AI-powered uroflowmetry — precision, connectivity, and affordable innovation.
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#technology">Technology</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/#applications">Applications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/careers.html">Careers</a></li>
+                        <li><a href="/offer-letters.html">Offer Letters</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+917488487969">+91 74884 87969</a></li>
+                        <li><a href="mailto:contact@sahrangmedtech.systems">contact@sahrangmedtech.systems</a></li>
+                        <li><a href="mailto:careers@sahrangmedtech.systems">careers@sahrangmedtech.systems</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-left">
+                    <button class="footer-lang-btn" aria-label="Language selector">
+                        <i class="ri-global-line"></i>
+                        English (India)
+                    </button>
+                    <span class="footer-privacy-toggle">
+                        <span class="ms-toggle" aria-label="Privacy toggle">
+                            <span class="ms-toggle-dot"></span>
+                        </span>
+                        Your Privacy Choices
+                    </span>
+                    <a href="#" class="footer-bottom-link">Consumer Health Privacy</a>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                    <a href="#" class="footer-bottom-link">Terms of Use</a>
+                    <a href="#" class="footer-bottom-link">Trademarks</a>
+                    <span class="footer-copyright">© 2026 Sahrang Medtech</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <span class="btt-arrow"></span>
+        Back to top
+    </a>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/verify.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Offer Letters - Sahrang Medtech</title>
+    <meta name="description" content="Search and access internship offer letters published by Sahrang Medtech.">
+    <link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/offers.css">
+</head>
+
+<body>
+
+    <nav class="navbar nav-visible">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="Images/Blue_logo_transperent.png" alt="Sahrang Logo" style="height: 36px;">
+                Sahrang Medtech
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#technology">Technology</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/#applications">Applications</a></li>
+                <li><a href="/careers.html" style="color: var(--primary-blue); font-weight: 600;">Careers</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="/#contact" class="nav-icon-btn">
+                    <i class="ri-phone-line"></i>
+                    Contact
+                </a>
+                <div class="nav-divider"></div>
+                <a href="/#contact" class="nav-cta">Get Quote</a>
+            </div>
+
+            <button class="hamburger" aria-label="Open menu">
+                <i class="ri-menu-line" id="hamburgerIcon"></i>
+            </button>
+
+            <ul class="nav-links-mobile">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#technology">Technology</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/#applications">Applications</a></li>
+                <li><a href="/careers.html">Careers</a></li>
+                <li><a href="/#contact" class="nav-cta">Get Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="offers-hero">
+        <div class="container">
+            <div class="hero-badge animate-on-scroll">
+                <i class="ri-folder-shield-2-line"></i>
+                Intern Resources
+            </div>
+            <h1 class="offers-hero-title animate-on-scroll">Internship Offer Letters</h1>
+            <p class="offers-hero-subtitle animate-on-scroll">
+                Search by your name and issue period to find and download your official internship offer letter.
+            </p>
+        </div>
+    </section>
+
+    <section class="offers-section">
+        <div class="container">
+            <div class="offers-filters animate-on-scroll" aria-label="Offer letter search filters">
+                <div class="offers-filters-head">
+                    <h2 class="offers-filters-title">Find Your Offer Letter</h2>
+                    <p class="offers-filters-note">Use full name and issue period. Year options begin from 2025.</p>
+                </div>
+
+                <div class="offers-filters-controls">
+                    <label class="offers-field" for="nameFilter">
+                        <span class="offers-field-label">Full Name</span>
+                        <div class="offers-input-wrap">
+                            <i class="ri-search-line" aria-hidden="true"></i>
+                            <input id="nameFilter" type="text" placeholder="Enter your full name">
+                        </div>
+                    </label>
+
+                    <label class="offers-field" for="yearFilter">
+                        <span class="offers-field-label">Year</span>
+                        <select id="yearFilter" aria-label="Filter by year">
+                            <option value="all">All Years</option>
+                        </select>
+                    </label>
+
+                    <label class="offers-field" for="monthFilter">
+                        <span class="offers-field-label">Month</span>
+                        <select id="monthFilter" aria-label="Filter by month">
+                            <option value="all">All Months</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="offers-filters-meta">
+                    <span id="resultCount">0 offer letters</span>
+                </div>
+            </div>
+
+            <div id="offersGrid" class="offers-grid animate-on-scroll" aria-live="polite"></div>
+
+            <div id="offersEmpty" class="offers-empty" hidden>
+                <i class="ri-file-search-line" aria-hidden="true"></i>
+                <h3 id="offersEmptyTitle">Search required</h3>
+                <p id="offersEmptyText">Enter full name and select both month and year to access your offer letter.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-col">
+                    <div style="margin-bottom: 1.25rem;">
+                        <div style="display:flex; align-items:center; gap:8px; color:#002050; font-weight:700; font-size:0.9375rem;">
+                            <img src="Images/Blue_logo_transperent.png" alt="Sahrang Logo" style="height:28px;">
+                            Sahrang Medtech
+                        </div>
+                        <p style="font-size:0.8125rem; color:#555; margin-top:0.75rem; line-height:1.6;">
+                            AI-powered uroflowmetry — precision, connectivity, and affordable innovation.
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#technology">Technology</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/#applications">Applications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/careers.html">Careers</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+917488487969">+91 74884 87969</a></li>
+                        <li><a href="mailto:contact@sahrangmedtech.systems">contact@sahrangmedtech.systems</a></li>
+                        <li><a href="mailto:careers@sahrangmedtech.systems">careers@sahrangmedtech.systems</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-left">
+                    <button class="footer-lang-btn" aria-label="Language selector">
+                        <i class="ri-global-line"></i>
+                        English (India)
+                    </button>
+                    <span class="footer-privacy-toggle">
+                        <span class="ms-toggle" aria-label="Privacy toggle">
+                            <span class="ms-toggle-dot"></span>
+                        </span>
+                        Your Privacy Choices
+                    </span>
+                    <a href="#" class="footer-bottom-link">Consumer Health Privacy</a>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                    <a href="#" class="footer-bottom-link">Terms of Use</a>
+                    <a href="#" class="footer-bottom-link">Trademarks</a>
+                    <span class="footer-copyright">© 2026 Sahrang Medtech</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="offerModal" class="offer-modal" hidden aria-hidden="true">
+        <div class="offer-modal-backdrop" data-close-modal="true"></div>
+        <div class="offer-modal-panel" role="dialog" aria-modal="true" aria-labelledby="offerModalTitle">
+            <div class="offer-modal-header">
+                <div>
+                    <p class="offer-modal-kicker">Document Preview</p>
+                    <h2 id="offerModalTitle">Offer Letter</h2>
+                </div>
+                <div class="offer-modal-actions">
+                    <a id="offerModalDownload" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        <i class="ri-download-2-line"></i>
+                        Download
+                    </a>
+                    <button id="offerModalClose" class="offer-modal-close" type="button" aria-label="Close preview">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="offer-modal-body">
+                <iframe id="offerPreviewFrame" title="Offer Letter PDF Preview" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <span class="btt-arrow"></span>
+        Back to top
+    </a>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/offers.js" defer></script>
+</body>
+
+</html>

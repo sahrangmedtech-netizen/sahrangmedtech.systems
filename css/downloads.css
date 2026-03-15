@@ -1,0 +1,108 @@
+/* ============================================================
+   Sahrang Medtech — Downloads Page Styles (css/downloads.css)
+   ============================================================ */
+
+.downloads-hero {
+    background: var(--surface-white);
+    padding: 4.25rem 0 2rem;
+}
+
+.downloads-title {
+    font-size: clamp(1.9rem, 4.2vw, 2.7rem);
+    font-weight: 700;
+    color: var(--dark-blue);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+.downloads-subtitle {
+    max-width: 680px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.downloads-section {
+    padding: 1rem 0 4.5rem;
+    background: var(--surface-medium);
+}
+
+.downloads-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--border-color);
+    border: 1px solid var(--border-color);
+}
+
+.download-card {
+    background: var(--surface-white);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    min-height: 250px;
+}
+
+.download-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-blue);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+}
+
+.download-card:hover {
+    background: #EBF4FB;
+}
+
+.download-card:hover::before {
+    transform: scaleX(1);
+}
+
+.download-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--light-blue);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+}
+
+.download-title {
+    color: var(--dark-blue);
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.download-description {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+}
+
+.download-card .btn-primary {
+    margin-top: auto;
+    width: fit-content;
+}
+
+@media (min-width: 900px) {
+    .downloads-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .download-card {
+        padding: 2rem;
+        min-height: 280px;
+    }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Shubham Singh",
+    "role": "Backend Engineering Intern",
+    "department": "Engineering",
+    "month": 10,
+    "year": 2025,
+    "issueDate": "10 Oct 2025",
+    "previewUrl": "https://drive.google.com/file/d/OFFERFILEID0034/preview",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=OFFERFILEID0034"
+  },
+  {
+    "name": "Dhruv Kumar",
+    "role": "Software Development Engineer Intern",
+    "department": "Engineering",
+    "month": 11,
+    "year": 2025,
+    "issueDate": "17 Nov 2025",
+    "previewUrl": "https://drive.google.com/file/d/OFFERFILEID0041/preview",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=OFFERFILEID0041"
+  },
+  {
+    "name": "Khushi Kumari",
+    "role": "Frontend Engineering Intern",
+    "department": "Engineering",
+    "month": 12,
+    "year": 2025,
+    "issueDate": "15 Dec 2025",
+    "previewUrl": "https://drive.google.com/file/d/OFFERFILEID0062/preview",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=OFFERFILEID0062"
+  },
+  {
+    "name": "Kumar Vanshaj",
+    "role": "AI/ML Intern",
+    "department": "Artificial Intelligence",
+    "month": 12,
+    "year": 2025,
+    "issueDate": "01 Dec 2025",
+    "previewUrl": "https://drive.google.com/file/d/OFFERFILEID0055/preview",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=OFFERFILEID0055"
+  }
+]
