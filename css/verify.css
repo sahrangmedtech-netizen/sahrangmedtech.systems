@@ -233,6 +233,23 @@
     line-height: 1.6;
 }
 
+
+/* ── Dark Mode Overrides ───────────────────────────────────── */
+body.dark-mode .verify-trust-badge {
+    background: #172230;
+    border-color: #2c3f58;
+    color: #d4e3f6;
+}
+
+body.dark-mode .verify-input-wrap input,
+body.dark-mode .verify-result,
+body.dark-mode .verify-details,
+body.dark-mode .verify-certificate,
+body.dark-mode .verify-certificate-frame-wrap,
+body.dark-mode #verifyCertificateFrame {
+    background: #141c27;
+}
+
 .verify-certificate-frame-wrap {
     min-height: 360px;
     background: #f4f7fb;

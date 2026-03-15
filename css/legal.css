@@ -1,0 +1,220 @@
+/* ============================================================
+   Sahrang Medtech — Legal & Trust Pages (legal.css)
+   Shared styles for policy, legal, trademark, documentation pages.
+   ============================================================ */
+
+.legal-hero {
+    background: linear-gradient(120deg, #ebf4fb 0%, #ffffff 70%);
+    border-bottom: 1px solid var(--border-color);
+    padding: 4rem 0 3rem;
+}
+
+.legal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--dark-blue);
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.45rem 0.9rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
+
+.legal-title {
+    color: var(--dark-blue);
+    font-size: clamp(1.8rem, 3.8vw, 2.9rem);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+.legal-subtitle {
+    max-width: 760px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.legal-updated {
+    margin-top: 1rem;
+    color: #596c88;
+    font-size: 0.875rem;
+}
+
+.legal-content {
+    padding: 3rem 0 4.5rem;
+    background: var(--surface-white);
+}
+
+.legal-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(230px, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.legal-panel {
+    background: var(--surface-white);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+    padding: 1.35rem;
+}
+
+.legal-panel h2 {
+    color: var(--dark-blue);
+    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+}
+
+.legal-panel h3 {
+    color: var(--dark-blue);
+    font-size: 1rem;
+    margin: 1rem 0 0.4rem;
+}
+
+.legal-panel p,
+.legal-panel li {
+    color: #324a68;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.legal-panel ul,
+.legal-panel ol {
+    padding-left: 1.1rem;
+    margin-top: 0.45rem;
+}
+
+.legal-stack {
+    display: grid;
+    gap: 1rem;
+}
+
+.legal-aside-card {
+    background: #f6f8fb;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+}
+
+.legal-aside-card h4 {
+    color: var(--dark-blue);
+    font-size: 0.92rem;
+    margin-bottom: 0.4rem;
+}
+
+.legal-aside-card p,
+.legal-aside-card li {
+    color: #4b5f7c;
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+.legal-aside-card ul {
+    padding-left: 1rem;
+}
+
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.75rem;
+}
+
+.legal-table th,
+.legal-table td {
+    border: 1px solid var(--border-color);
+    padding: 0.6rem;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.legal-table th {
+    background: #f4f7fb;
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+.legal-callout {
+    background: #ebf4fb;
+    border: 1px solid #c9dff4;
+    padding: 0.85rem;
+    margin-top: 0.8rem;
+}
+
+.legal-link-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.legal-link-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+    padding: 0.8rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.legal-link-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-medium);
+}
+
+.legal-link-card strong {
+    color: var(--dark-blue);
+    font-size: 0.95rem;
+}
+
+.legal-link-card p {
+    margin-top: 0.25rem;
+    font-size: 0.84rem;
+    color: #4b5f7c;
+}
+
+
+/* ── Dark Mode Overrides ───────────────────────────────────── */
+body.dark-mode .legal-hero {
+    background: linear-gradient(120deg, #141d29 0%, #10151d 72%);
+}
+
+body.dark-mode .legal-panel p,
+body.dark-mode .legal-panel li,
+body.dark-mode .legal-aside-card p,
+body.dark-mode .legal-aside-card li,
+body.dark-mode .legal-updated,
+body.dark-mode .legal-link-card p {
+    color: #b4c3d8;
+}
+
+body.dark-mode .legal-aside-card,
+body.dark-mode .legal-table th,
+body.dark-mode .legal-callout {
+    background: #172230;
+    border-color: #2c3f58;
+}
+
+@media (max-width: 960px) {
+    .legal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .legal-hero {
+        padding: 3rem 0 2.25rem;
+    }
+
+    .legal-content {
+        padding: 2.5rem 0 3.25rem;
+    }
+
+    .legal-panel {
+        padding: 1rem;
+    }
+}

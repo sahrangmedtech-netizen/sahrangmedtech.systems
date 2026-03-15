@@ -96,6 +96,16 @@
     width: fit-content;
 }
 
+
+/* ── Dark Mode Overrides ───────────────────────────────────── */
+body.dark-mode .download-card:hover {
+    background: #172230;
+}
+
+body.dark-mode .download-icon {
+    background: #223448;
+}
+
 @media (min-width: 900px) {
     .downloads-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));

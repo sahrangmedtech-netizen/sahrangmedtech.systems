@@ -346,6 +346,26 @@
     color: var(--primary-blue);
 }
 
+
+/* ── Dark Mode Overrides ───────────────────────────────────── */
+body.dark-mode .offers-input-wrap input,
+body.dark-mode .offers-field select,
+body.dark-mode .offer-modal-panel,
+body.dark-mode .offer-modal-close,
+body.dark-mode #offerPreviewFrame,
+body.dark-mode #completionPreviewFrame {
+    background: #141c27;
+}
+
+body.dark-mode .offer-card:hover,
+body.dark-mode .offer-modal-close:hover {
+    background: #172230;
+}
+
+body.dark-mode .offer-modal-kicker {
+    color: #b4c3d8;
+}
+
 .offer-modal-body {
     flex: 1;
     min-height: 320px;

@@ -609,6 +609,36 @@
 .form-submit:hover { background: var(--pressed-blue); }
 
 
+/* ── Dark Mode Overrides ───────────────────────────────────── */
+body.dark-mode .hero::before,
+body.dark-mode .stat-item,
+body.dark-mode .pricing-feature,
+body.dark-mode .feature-card:hover,
+body.dark-mode .app-card:hover {
+    background: #172230;
+}
+
+body.dark-mode .contact-item-icon {
+    background: #223448;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #141c27;
+    border-color: var(--border-color);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+    box-shadow: 0 0 0 3px rgba(105, 174, 248, 0.22);
+}
+
+body.dark-mode .device-image {
+    filter: drop-shadow(0 32px 64px rgba(0,0,0,0.45))
+            drop-shadow(0 8px 20px rgba(105,174,248,0.18));
+}
+
+
 /* ── RESPONSIVE OVERRIDES ───────────────────────────────────── */
 @media (max-width: 768px) {
     /* Video demo */

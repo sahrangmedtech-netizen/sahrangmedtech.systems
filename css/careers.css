@@ -713,6 +713,54 @@
     color: #fff;
 }
 
+
+/* ── Dark Mode Overrides ───────────────────────────────────── */
+body.dark-mode .careers-hero::before,
+body.dark-mode .careers-stats .stat-item,
+body.dark-mode .value-card:hover,
+body.dark-mode .job-card .job-row:hover,
+body.dark-mode .job-card.expanded .job-row,
+body.dark-mode .job-row:hover,
+body.dark-mode .job-intern-badge,
+body.dark-mode .filter-btn:hover,
+body.dark-mode .careers-cta .btn-primary:hover {
+    background: #172230;
+}
+
+body.dark-mode .job-card.expanded .job-row {
+    border-left-color: var(--primary-blue);
+}
+
+body.dark-mode .mission-description,
+body.dark-mode .careers-cta-subtitle {
+    color: rgba(255,255,255,0.82);
+}
+
+body.dark-mode .perk-icon {
+    background: #1160B7;
+    color: #ffffff;
+}
+
+body.dark-mode .careers-cta .btn-primary {
+    background: #f2f6fc;
+    border-color: #f2f6fc;
+    color: #0b1a2d;
+}
+
+body.dark-mode .careers-cta .btn-primary:hover {
+    background: #dbe8f5;
+    border-color: #dbe8f5;
+    color: #08111f;
+}
+
+body.dark-mode .careers-cta .btn-secondary {
+    color: #eaf1fb;
+}
+
+body.dark-mode .careers-cta .btn-secondary:hover {
+    color: #ffffff;
+}
+
 .cta-btn-group {
     display: flex;
     gap: 0.75rem;
@@ -775,10 +823,18 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 0.75rem;
+        justify-content: flex-start;
+        gap: 0.45rem;
         border-right: none;
         border-bottom: 1px solid var(--border-color);
         padding: 0.875rem 1.25rem;
+    }
+
+    .careers-stats .stat-item .stat-number,
+    .careers-stats .stat-item .stat-label {
+        display: inline;
+        margin: 0;
+        line-height: 1.35;
     }
 
     .careers-stats .stat-item:last-child {

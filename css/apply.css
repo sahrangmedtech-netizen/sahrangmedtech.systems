@@ -564,6 +564,34 @@
 .sidebar-email-link:hover { color: var(--pressed-blue); text-decoration: underline; }
 
 
+/* ── Dark Mode Overrides ───────────────────────────────────── */
+body.dark-mode .apply-layout,
+body.dark-mode .declaration-box,
+body.dark-mode .file-upload-wrapper:hover,
+body.dark-mode .form-field input.readonly-field,
+body.dark-mode .file-upload-wrapper.file-upload-disabled {
+    background: #141c27;
+}
+
+body.dark-mode .form-field input[type="text"],
+body.dark-mode .form-field input[type="email"],
+body.dark-mode .form-field input[type="tel"],
+body.dark-mode .form-field input[type="url"],
+body.dark-mode .form-field input[type="number"],
+body.dark-mode .form-field input[type="date"],
+body.dark-mode .form-field select,
+body.dark-mode .form-field textarea {
+    background: #141c27;
+    border-color: var(--border-color);
+}
+
+body.dark-mode .file-upload-label-disabled,
+body.dark-mode .file-upload-wrapper.file-upload-disabled .file-upload-ui i,
+body.dark-mode .file-upload-wrapper.file-upload-disabled .file-upload-text {
+    color: #8ea3be;
+}
+
+
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 1024px) {
     .apply-grid {
