@@ -99,7 +99,13 @@
     const THEME_KEY = 'sahrang-theme-mode';
 
     function updateLogos(isDark) {
-        document.querySelectorAll('img[src*="logo-blue-transparent.png"]').forEach(function (img) {
+        const logoSelector = [
+            'img[data-light-logo]',
+            'img[src*="logo-blue-transparent.png"]',
+            'img[src*="logo-monochrome-transparent.png"]'
+        ].join(', ');
+
+        document.querySelectorAll(logoSelector).forEach(function (img) {
             if (!img.dataset.lightLogo) {
                 img.dataset.lightLogo = img.getAttribute('src') || '';
             }
