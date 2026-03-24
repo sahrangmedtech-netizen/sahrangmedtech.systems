@@ -92,4 +92,22 @@
         });
     }
 
+    /* ── 3. Protect selected media from casual copying ───────── */
+    const protectedMedia = document.querySelectorAll('.protected-media');
+
+    if (protectedMedia.length) {
+        const blockEvent = function (e) {
+            e.preventDefault();
+        };
+
+        protectedMedia.forEach(function (media) {
+            media.setAttribute('draggable', 'false');
+            media.addEventListener('contextmenu', blockEvent);
+            media.addEventListener('dragstart', blockEvent);
+            media.addEventListener('selectstart', blockEvent);
+            media.addEventListener('copy', blockEvent);
+            media.addEventListener('cut', blockEvent);
+        });
+    }
+
 }());
