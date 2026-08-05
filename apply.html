@@ -81,6 +81,13 @@
                 <p class="apply-hero-sub">
                     You are applying for: <strong id="applyRoleDisplay">—</strong>
                 </p>
+                <div class="apply-status-banner apply-status-closed" role="status" aria-live="polite">
+                    <i class="ri-close-circle-line"></i>
+                    <div>
+                        <strong>Hiring is currently closed.</strong>
+                        <p>Applications are paused right now, so the form below is disabled.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -94,9 +101,10 @@
                 <!-- ── MAIN FORM ─────────────────────────────── -->
                 <form
                     id="applicationForm"
-                    class="apply-form"
+                    class="apply-form is-closed"
                     action="https://formspree.io/f/mzdjdbzg"
                     method="POST"
+                    aria-disabled="true"
                     novalidate
                 >
                     <!-- Hidden: position field populated by JS -->
@@ -470,13 +478,13 @@
                         </div>
 
                         <div class="form-submit-row">
-                            <button type="submit" class="btn-primary btn-submit" id="submitBtn">
+                            <button type="submit" class="btn-primary btn-submit btn-submit-closed" id="submitBtn" disabled>
                                 <!-- <i class="ri-send-plane-line"></i> -->
-                                Submit Application
+                                Hiring Closed
                             </button>
                             <p class="submit-note">
                                 <i class="ri-time-line"></i>
-                                We review every application personally and respond within 5 business days.
+                                Hiring is paused. Please check back later or reach out to careers@sahrangmedtech.systems.
                             </p>
                         </div>
 
@@ -633,6 +641,8 @@
     (function () {
         'use strict';
 
+        var hiringClosed = true;
+
         /* ── Read ?role= from URL and populate fields ── */
         var params   = new URLSearchParams(window.location.search);
         var roleRaw  = params.get('role') || '';
@@ -667,9 +677,38 @@
         var successEl = document.getElementById('successMsg');
         var errorEl   = document.getElementById('errorMsg');
 
+        if (hiringClosed && form) {
+            form.classList.add('is-closed');
+            form.setAttribute('aria-disabled', 'true');
+
+            Array.prototype.forEach.call(
+                form.querySelectorAll('input, select, textarea, button'),
+                function (field) {
+                    if (field.type === 'hidden') return;
+                    field.disabled = true;
+                }
+            );
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.classList.add('btn-submit-closed');
+                submitBtn.innerHTML = 'Hiring Closed';
+            }
+        }
+
         if (form) {
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
+
+                if (hiringClosed) {
+                    if (errorEl) {
+                        errorEl.style.display = 'flex';
+                        errorEl.querySelector('strong').textContent = 'Hiring is currently closed.';
+                        errorEl.querySelector('p').textContent = 'Applications are not being accepted right now. Please check back later or email careers@sahrangmedtech.systems.';
+                        errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
 
                 /* Basic client-side validation */
                 if (!form.checkValidity()) {

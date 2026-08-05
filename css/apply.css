@@ -41,6 +41,39 @@
     font-weight: 600;
 }
 
+.apply-status-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    margin-top: 1.25rem;
+    padding: 1rem 1.125rem;
+    border: 1px solid;
+}
+
+.apply-status-banner i {
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.apply-status-banner strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+}
+
+.apply-status-banner p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.apply-status-closed {
+    background: #fdecea;
+    border-color: #e53935;
+    color: #b71c1c;
+}
+
 
 /* ── Page layout ─────────────────────────────────────────── */
 .apply-layout {
@@ -189,6 +222,28 @@
 .form-field textarea:focus {
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(17, 96, 183, 0.12);
+}
+
+.apply-form.is-closed .form-field input,
+.apply-form.is-closed .form-field select,
+.apply-form.is-closed .form-field textarea,
+.apply-form.is-closed .radio-option,
+.apply-form.is-closed .checkbox-option,
+.apply-form.is-closed .file-upload-wrapper {
+    cursor: not-allowed;
+}
+
+.apply-form.is-closed .form-field input:disabled,
+.apply-form.is-closed .form-field select:disabled,
+.apply-form.is-closed .form-field textarea:disabled {
+    background: #f3f4f6;
+    color: #8b95a5;
+    opacity: 1;
+}
+
+.apply-form.is-closed .radio-option input[type="radio"],
+.apply-form.is-closed .checkbox-option input[type="checkbox"] {
+    cursor: not-allowed;
 }
 
 .form-field input.readonly-field {
@@ -396,8 +451,16 @@
 }
 
 .btn-submit:disabled {
-    opacity: 0.65;
+    opacity: 1;
     cursor: not-allowed;
+}
+
+.btn-submit-closed,
+.btn-submit-closed:hover,
+.btn-submit-closed:active {
+    background: var(--error-red);
+    border-color: var(--error-red);
+    color: #ffffff;
 }
 
 .submit-note {
@@ -605,6 +668,19 @@ body.dark-mode .apply-hero-sub {
 
 body.dark-mode .apply-hero-sub strong {
     color: #ffffff;
+}
+
+body.dark-mode .apply-status-closed {
+    background: rgba(229, 57, 53, 0.12);
+    border-color: #e57373;
+    color: #ffb4b1;
+}
+
+body.dark-mode .apply-form.is-closed .form-field input:disabled,
+body.dark-mode .apply-form.is-closed .form-field select:disabled,
+body.dark-mode .apply-form.is-closed .form-field textarea:disabled {
+    background: #1a2330;
+    color: #90a0b3;
 }
 
 
