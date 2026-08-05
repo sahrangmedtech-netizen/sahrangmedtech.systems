@@ -699,6 +699,8 @@
                         if (posDisp) posDisp.value = roleText;
                         if (posHidn) posHidn.value = roleText;
                         if (posSubj) posSubj.value = 'New Application — ' + roleText + ' — Sahrang Medtech';
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Submit Application';
                         successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     } else {
                         throw new Error('Server error');
