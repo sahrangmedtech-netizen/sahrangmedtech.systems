@@ -95,14 +95,18 @@
                 <form
                     id="applicationForm"
                     class="apply-form"
-                    action="https://script.google.com/macros/s/AKfycbwEkUkMWU3CZdZICHUOzobtYbgnHFyqmW23g3M4inTJz42w8_rs5AyEPo56w5lZpQM34Q/exec"
+                    action="https://formspree.io/f/mzdjdbzg"
                     method="POST"
                     novalidate
                 >
                     <!-- Hidden: position field populated by JS -->
                     <input type="hidden" name="position" id="positionHidden">
-                    <input type="hidden" name="token" value="BIG_SMOKE_FROM_LOS_SANTOS_CJ_CATALINA_IN_THEIR_HUT">
-                    <input type="text" name="_hp" style="display:none" autocomplete="off">
+                    <!-- Formspree honeypot -->
+                    <input type="text" name="_gotcha" style="display:none">
+                    <!-- Custom redirect after submission -->
+                    <input type="hidden" name="_next" value="https://sahrangmedtech.systems/apply-success.html">
+                    <!-- Email subject -->
+                    <input type="hidden" name="_subject" id="emailSubject" value="New Job Application — Sahrang Medtech">
 
                     <!-- ── Section 1: Personal Information ─── -->
                     <div class="form-section">
@@ -464,13 +468,6 @@
                                 <span>I confirm that all information in this application is accurate and I agree to the terms above. <span class="req">*</span></span>
                             </label>
                         </div>
-
-                        <!-- Formspree honeypot -->
-                        <input type="text" name="_gotcha" style="display:none">
-                        <!-- Custom redirect after submission -->
-                        <input type="hidden" name="_next" value="https://sahrangmedtech.systems/apply-success.html">
-                        <!-- Email subject -->
-                        <input type="hidden" name="_subject" id="emailSubject" value="New Job Application — Sahrang Medtech">
 
                         <div class="form-submit-row">
                             <button type="submit" class="btn-primary btn-submit" id="submitBtn">
